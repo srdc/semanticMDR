@@ -73,7 +73,7 @@ define(['jquery', 'backbone', 'marionette', 'bootstrap', 'js/models/dataelement/
 				soapReq += '<dex:RetrieveMetadataRequest xmlns:dex="urn:ihe:qrph:dex:2013">';
 				soapReq += '<dex:id>' + self.options.dataElementID + '</dex:id>';
 				//TODO: SRDC and version=0.1
-				soapReq += '<dex:registrationAuthority>SRDC</dex:registrationAuthority>';
+				soapReq += '<dex:registrationAuthority>eu.salusproject.mdr</dex:registrationAuthority>';
 				soapReq += '<dex:version>0.1</dex:version>';
 				soapReq += '</dex:RetrieveMetadataRequest>';
 				soapReq += '</soap:Body>';
