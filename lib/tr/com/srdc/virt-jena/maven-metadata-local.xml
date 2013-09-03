@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>tr.com.srdc</groupId>
+  <artifactId>virt-jena</artifactId>
+  <versioning>
+    <release>2.6.2-srdc</release>
+    <versions>
+      <version>2.6.2-srdc</version>
+    </versions>
+    <lastUpdated>20130509132130</lastUpdated>
+  </versioning>
+</metadata>

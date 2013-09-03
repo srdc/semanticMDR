@@ -1,0 +1,123 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>semantic-mdr.web</artifactId>
+    <packaging>war</packaging>
+    
+    <name>Metadata Registry/Repository Web Interface and REST, DEX services</name>
+
+	<parent>
+		<groupId>tr.com.srdc.semantic-mdr</groupId>
+		<artifactId>semantic-mdr.parent</artifactId>
+		<version>1.0.0</version>
+        <relativePath>../parent</relativePath>
+    </parent>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>tr.com.srdc.semantic-mdr</groupId>
+            <artifactId>semantic-mdr.core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>tr.com.srdc.semantic-mdr.importers</groupId>
+            <artifactId>ddl-importer</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>tr.com.srdc.semantic-mdr.importers</groupId>
+            <artifactId>ontology-importer</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tr.com.srdc.semantic-mdr</groupId>
+            <artifactId>semantic-mdr.dex</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- JERSEY for the JAX-RS API -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-servlet</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+        </dependency>
+
+        <!-- SLF4J + log4j Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+
+        <!-- For ServletContextListener -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+        </dependency>
+        
+		<!-- For Dex Web Services -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+    </dependencies>
+
+    <build>
+    	<finalName>semanticmdr</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>.</directory>
+                            <includes>
+                                <include>databases/**</include>
+								<include>stores/**</include>
+                                <include>derby.log</include>
+                            </includes>
+							<excludes>
+                                <exclude>src/**</exclude>
+                            </excludes>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>8.1.10.v20130312</version>
+                <configuration>
+					<webApp>
+						<contextPath>/semanticmdr</contextPath>
+					</webApp>
+				</configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

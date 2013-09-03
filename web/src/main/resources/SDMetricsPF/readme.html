@@ -1,0 +1,96 @@
+<html><head><title>SDMetrics Default Project Files</title></head>
+<body>
+<b>Description</b><p>
+
+<p>This set of project files contains the default SDMetrics metamodels
+for UML1.3/1.4 and UML2.0/2.1/2.2/2.3, and the default XMI transformation files and
+metric definition files that ship with SDMetrics and are documented
+in the user manual.</p>
+
+<p>You can use these files as a basis to define custom meta models,
+XMI transformations, metrics and rules of your own.</p>
+
+<p>This version of the default project files sets can be used with SDMetrics V2.0 and later.</p>
+
+<p><b>Contents</b></p>
+
+<table border="1">
+<tr><th>File</th><th>Description</th></tr>
+<tr><td>metamodel.xml</td><td>Definition of the SDMetrics default metamodel for UML1.x</td></tr>
+<tr><td>metamodel2.xml</td><td>Definition of the SDMetrics default metamodel for UML2.x</td></tr>
+<tr><td>metamodel.dtd</td><td>DTD for metamodel definition files.</td></tr>
+<tr><td>xmiTrans1_0.xml</td><td>XMI transformations for XMI1.0 files and UML1.x models.</td></tr>
+<tr><td>xmiTrans1_1.xml</td><td>XMI transformations for XMI1.1/1.2 files and UML1.x models.</td></tr>
+<tr><td>xmiTrans2_0.xml</td><td>XMI transformations for XMI2.0/2.1 files and UML2.x models.</td></tr>
+<tr><td>xmiTrans.dtd</td><td>DTD for XMI transformation files.</td></tr>
+<tr><td>metrics.xml</td><td>Definition of the design metrics, rules, relation matrices for UML1.x models.</td></tr>
+<tr><td>metrics2.xml</td><td>Definition of the design metrics, rules, relation matrices for UML2.x models.</td></tr>
+<tr><td>metrics.dtd</td><td>DTD for metric definition files.</td></tr>
+</table>
+
+<p><b>Revision History</b></p>
+
+<table border="1">
+<tr><th>Version</th><th>Date</th><th>Description</th></tr>
+<tr><td>v2.3</td><td>19/Mar/2012</td><td>Added Support for UML2.4: LiteralReal, revised OccurrenceSpecification,
+ExecutionOccurrenceSpecification, DestructionExecutionSpecification</td></tr>
+<tr><td>v2.2</td><td>24/Feb/2011</td><td>Corrected metric "DepIn" for components, extraction of "Realization" and "Substitution" elements
+for some XMI exporters</td></tr>
+<tr><td>v2.13</td><td>16/Aug/2010</td>
+<td>Revised treatment of UML2 ports. Fixes problems reading UML2 models with ports as exported by several UML tools.
+</td></tr>
+<tr><td>v2.12</td><td>18/Apr/2009</td>
+<td>Added Support for UML 2.2: New action StartObjectBehaviorAction. 
+Note that other changes to the UML2.2 metamodel such as ComponentRealizations 
+having more than one realizingClassifier, new 'result' output pins for 
+Clear/WriteStructuralFeatureAction etc. will be recognized by the v2.04 project files.<br/>
+<b>You only need to update if you use StartObjectBehaviorActions in your models and need them reflected by the metrics/design rules.</b>
+</td></tr>
+<tr><td>v2.1</td><td>20/Apr/2008</td>
+<td>Updated metrics.dtd for relation matrix row/column conditions.
+</td></tr>
+<tr><td>v2.04</td><td>15/Oct/2006</td>
+<td>Added support for UML 2.1 (packagedElements, ComponentRealizations, ReduceActions, ReceiveSignalEvents and ReceiveOperatorEvents).
+</td></tr>
+<tr><td>v2.03</td><td>26/Mar/2006</td>
+<td>UML2 meta model elements "interaction" and "collaboration" now inherit
+from class and can thus own attributes. Fixes problems with
+lifeline-related metrics for some UML tools.
+</td></tr>
+<tr><td>v2.02</td><td>19/Mar/2006</td>
+<td>Replaced UML Namespace "UML:" with "uml:" in XMITrans2_0.xml to
+account for the fact that most XMI2.x exporters use the lowercase
+namespace prefix.
+</td></tr>
+<tr><td>v2.01</td><td>27/Oct/2005</td>
+<td>Fixed bug in xmiTrans2_0.xml reading Fork nodes as FlowFinal nodes in activity graphs.
+</td></tr>
+
+<tr><td>v2.0</td><td>28/Sep/2005</td>
+<td>
+<ul><li>Added UML2.0 and XMI2.x metamodel, XMI transformation, and metric definitions.</li>
+<li>Small revisions to the set of UML1.x metrics and rules.</li>
+<li>Added extensive descriptions for metrics and rules, glossary, literature references.</li>
+<li>Added support for ObjectFlowState, CallState, ActivityState, SubmachineState, Stubstate in UML1.x models.</li>
+<li>Fixed reading of stimulus sender/receivers from attributes in XMI1.1 files.</li>
+</ul></td></tr>
+
+<tr><td>v1.31</td><td>23/Apr/2005</td>
+<td><ul><li>Added the "Martin Metrics" for packages</li>
+<li>Added Diagram metrics for MetaMill.</li></ul></td></tr>
+<tr><td>v1.3</td><td>01/Dec/2004</td><td><ul><li>Updated to SDMetrics V1.3 meta model</li>
+<li>Added design rules to metrics.xml</li></ul></td></tr>
+
+<tr><td>v1.11</td><td>12/May/2003</td><td>Added Diagram metrics for Embarcadero Describe 5.</td></tr>
+<tr><td>V1.1</td><td>06/May/2003</td><td><ul><li>Added diagram-specific metrics;
+replaced the separate project file sets for Unisys Integrate XMI export and MagicDraw.</li>
+<li>Added definitions of relation matrices.</li></ul></td></tr>
+<tr><td>V1.01</td><td>15/Jan/2003</td><td>Fixed a problem with reading SignalEvents and TimeEvents.</td></tr>
+<tr><td>V1.0</td><td>31/Dec/2002</td><td>Initial release.</td></tr>
+</table>
+
+
+For the latest project files updates, visit the
+<a href="http://www.sdmetrics.com/DownPF.html">SDMetrics Project File Downloads Page</a>.
+
+</body></html>

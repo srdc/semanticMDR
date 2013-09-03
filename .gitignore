@@ -1,0 +1,12 @@
+.project
+.settings
+.classpath
+bin
+*.class
+target
+build
+*.log
+databases
+stores
+*~
+catalog-*

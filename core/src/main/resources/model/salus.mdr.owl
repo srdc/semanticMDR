@@ -1,0 +1,2343 @@
+<?xml version="1.0"?>
+
+<!-- OWL-Lite -->
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY mdr "http://www.salusproject.eu/iso11179-3/mdr#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.salusproject.eu/iso11179-3/mdr#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:mdr="http://www.salusproject.eu/iso11179-3/mdr#">
+     
+    <owl:Ontology rdf:about="http://salusproject.eu/iso11179-3/mdr/salus.mdr.owl">
+        <rdfs:label>SALUS MDR Ontology</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">SALUS MDR Ontology</rdfs:comment>
+    </owl:Ontology>
+    
+    <!-- &mdr;LanguageIdentification -->
+
+    <owl:Class rdf:about="&mdr;LanguageIdentification">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;languageIdentifier"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;countryIdentifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;LanguageIdentification"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;languageIdentifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;LanguageIdentification"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <!-- &mdr;RegistrationAuthorityIdentifier -->
+      
+    <owl:Class rdf:about="&mdr;RegistrationAuthorityIdentifier">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;internationalCodeDesignator"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;organizationIdentifier"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;internationalCodeDesignator">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;RegistrationAuthorityIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;organizationIdentifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;RegistrationAuthorityIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;organizationPartIdentifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;RegistrationAuthorityIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;opiSource">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;RegistrationAuthorityIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <!-- &mdr;ItemIdentifier -->
+    
+    <owl:Class rdf:about="&mdr;ItemIdentifier">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;itemRegistrationAuthorityIdentifier"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;version"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;dataIdentifier"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <!-- <owl:disjointWith rdf:resource="&mdr;RegistrationAuthorityIdentifier"/> -->
+    </owl:Class>
+    
+    <owl:ObjectProperty rdf:about="&mdr;itemRegistrationAuthorityIdentifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;ItemIdentifier"/>
+        <rdfs:range rdf:resource="&mdr;RegistrationAuthorityIdentifier"/>
+    </owl:ObjectProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;dataIdentifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;ItemIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;version">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;ItemIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <!-- &mdr;Contact -->
+    
+    <owl:Class rdf:about="&mdr;Contact">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;contactInformation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;contactName"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;contactName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;Contact"/>
+    	<rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;contactInformation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;Contact"/>
+   		<rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;contactTitle">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;Contact"/>
+    	<rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>    
+    
+    <!-- &mdr;AdministrationRecord -->
+    
+    <owl:Class rdf:about="&mdr;AdministrationRecord">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;administeredItemIdentifier"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;registrationStatus"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;administrativeStatus"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;creationDate"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:ObjectProperty rdf:about="&mdr;administeredItemIdentifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:range rdf:resource="&mdr;ItemIdentifier"/>
+    </owl:ObjectProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;registrationStatus">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;administrativeStatus">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;creationDate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;lastChangeDate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;effectiveDate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;untilDate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;changeDescription">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+        
+    <owl:DatatypeProperty rdf:about="&mdr;administrativeNote">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;explanatoryComment">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+        
+    <owl:DatatypeProperty rdf:about="&mdr;unresolvedIssue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;origin">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <!-- &mdr;AdministeredItem -->
+
+    <owl:Class rdf:about="&mdr;AdministeredItem">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;administeredItemAdministrationRecord"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;administeredBy"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;submittedBy"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;registeredBy"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;having"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;describedBy"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <!-- <owl:disjointWith rdf:resource="&mdr;AdministrationRecord"/> -->
+    </owl:Class>
+
+	<owl:ObjectProperty rdf:about="&mdr;administeredBy">
+        <owl:inverseOf rdf:resource="&mdr;administeredItems"/>
+        <rdfs:domain rdf:resource="&mdr;AdministeredItem"/>
+        <rdfs:range rdf:resource="&mdr;StewardshipRelationship"/>
+    </owl:ObjectProperty>    
+
+    <owl:ObjectProperty rdf:about="&mdr;administeredItemAdministrationRecord">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;AdministeredItem"/>
+        <rdfs:range rdf:resource="&mdr;AdministrationRecord"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&mdr;classifiedBy">
+        <rdfs:domain rdf:resource="&mdr;AdministeredItem"/>
+        <rdfs:range rdf:resource="&mdr;ClassificationSchemeItem"/>
+        <owl:inverseOf rdf:resource="&mdr;classifying"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&mdr;submittedBy">
+		<owl:inverseOf rdf:resource="&mdr;submittedItems"/>
+        <rdfs:domain rdf:resource="&mdr;AdministeredItem"/>
+        <rdfs:range rdf:resource="&mdr;SubmissionRelationship"/>
+    </owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;registeredBy">
+		<owl:inverseOf rdf:resource="&mdr;registering"/>	
+        <rdfs:domain rdf:resource="&mdr;AdministeredItem"/>
+        <rdfs:range rdf:resource="&mdr;RegistrationAuthority"/>
+    </owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;having">
+		<owl:inverseOf rdf:resource="&mdr;grouping"/>
+        <rdfs:domain rdf:resource="&mdr;AdministeredItem"/>
+        <rdfs:range rdf:resource="&mdr;AdministeredItemContext"/>
+    </owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;describedBy">
+		<owl:inverseOf rdf:resource="&mdr;describing"/>	
+        <rdfs:domain rdf:resource="&mdr;AdministeredItem"/>
+        <rdfs:range rdf:resource="&mdr;ReferenceDocument"/>
+    </owl:ObjectProperty>
+    
+    <!-- &mdr;Property -->
+
+    <owl:Class rdf:about="&mdr;Property">
+        <rdfs:subClassOf rdf:resource="&mdr;AdministeredItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;propertyAdministrationRecord"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+     <owl:ObjectProperty rdf:about="&mdr;propertyAdministrationRecord">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;Property"/>
+        <rdfs:range rdf:resource="&mdr;AdministrationRecord"/>
+		<rdfs:subPropertyOf rdf:resource="&mdr;administeredItemAdministrationRecord"/>
+    </owl:ObjectProperty>
+    
+    <!-- &mdr;ObjectClass -->
+
+    <owl:Class rdf:about="&mdr;ObjectClass">
+        <rdfs:subClassOf rdf:resource="&mdr;AdministeredItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;objectClassAdministrationRecord"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <!-- <owl:disjointWith rdf:resource="&mdr;Property"/> -->
+    </owl:Class>
+    
+    <owl:ObjectProperty rdf:about="&mdr;objectClassAdministrationRecord">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;ObjectClass"/>
+        <rdfs:range rdf:resource="&mdr;AdministrationRecord"/>
+		<rdfs:subPropertyOf rdf:resource="&mdr;administeredItemAdministrationRecord"/>
+	</owl:ObjectProperty>
+
+    <!-- &mdr;DataElementConcept -->
+    
+    <owl:Class rdf:about="&mdr;DataElementConcept">
+        <rdfs:subClassOf rdf:resource="&mdr;AdministeredItem"/>
+    	<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;dataElementConceptAdministrationRecord"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>  
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;havingDataElementConceptConceptualDomainRelationship"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>      
+        <!-- <owl:disjointWith rdf:resource="&mdr;ObjectClass"/> -->
+        <!-- <owl:disjointWith rdf:resource="&mdr;Property"/> -->
+    </owl:Class>
+    
+    
+    
+    <owl:ObjectProperty rdf:about="&mdr;dataElementConceptAdministrationRecord">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;DataElementConcept"/>
+        <rdfs:range rdf:resource="&mdr;AdministrationRecord"/>
+		<rdfs:subPropertyOf rdf:resource="&mdr;administeredItemAdministrationRecord"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&mdr;dataElementConceptObjectClass">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;DataElementConcept"/>
+         <rdfs:range rdf:resource="&mdr;ObjectClass"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&mdr;dataElementConceptProperty">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;DataElementConcept"/>
+        <rdfs:range rdf:resource="&mdr;Property"/>
+    </owl:ObjectProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;objectClassQualifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;DataElementConcept"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+     <owl:DatatypeProperty rdf:about="&mdr;propertyQualifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;propertyQualifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+     </owl:DatatypeProperty>
+     
+      <owl:ObjectProperty rdf:about="&mdr;expressedByDataElementConceptExpression">
+        <owl:inverseOf rdf:resource="&mdr;expressingDataElementConceptExpression"/>
+        <rdfs:domain rdf:resource="&mdr;DataElementConcept"/>
+         <rdfs:range rdf:resource="&mdr;DataElement"/>
+    </owl:ObjectProperty>
+    
+     <owl:ObjectProperty rdf:about="&mdr;havingDataElementConceptConceptualDomainRelationship">
+        <owl:inverseOf rdf:resource="&mdr;specifyingDataElementConceptConceptualDomainRelationship"/>
+        <rdfs:domain rdf:resource="&mdr;DataElementConcept"/>
+         <rdfs:range rdf:resource="&mdr;ConceptualDomain"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&mdr;relatedToDataElementConceptRelationship">
+        <owl:inverseOf rdf:resource="&mdr;relatingDataElementConceptRelationship"/>
+        <rdfs:domain rdf:resource="&mdr;DataElementConcept"/>
+         <rdfs:range rdf:resource="&mdr;DataElementConceptRelationshipAssociation"/>
+    </owl:ObjectProperty>
+    
+     <!-- &mdr;DataElement -->
+
+     <owl:Class rdf:about="&mdr;DataElement">
+        <rdfs:subClassOf rdf:resource="&mdr;AdministeredItem"/>
+       	<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;dataElementAdministrationRecord"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf> 
+        	<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;representationClassQualifier"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf> 
+        	<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;dataElementPrecision"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;representedByDataElementRepresentation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf> 
+         <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;expressingDataElementConceptExpression"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf> 
+        	<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;inputToDerivationInput"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf> 
+        	<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;derivedFromDerivationOutput"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf> 
+        	<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;exemplifiedByExemplification"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf> 
+        	<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;typedByDataElementRepresentationClass"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf> 
+        <!-- <owl:disjointWith rdf:resource="&mdr;DataElementConcept"/>
+        <owl:disjointWith rdf:resource="&mdr;ObjectClass"/>
+        <owl:disjointWith rdf:resource="&mdr;Property"/> -->
+    </owl:Class>
+    
+    <owl:ObjectProperty rdf:about="&mdr;dataElementAdministrationRecord">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;DataElement"/>
+        <rdfs:range rdf:resource="&mdr;AdministrationRecord"/>
+		<rdfs:subPropertyOf rdf:resource="&mdr;administeredItemAdministrationRecord"/>
+    </owl:ObjectProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;representationClassQualifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;DataElement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+     <owl:DatatypeProperty rdf:about="&mdr;dataElementPrecision">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;dataElementPrecision"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+     </owl:DatatypeProperty>
+     
+     <owl:ObjectProperty rdf:about="&mdr;representedByDataElementRepresentation">
+        <owl:inverseOf rdf:resource="&mdr;representingDataElementRepresentation"/>
+        <rdfs:domain rdf:resource="&mdr;DataElement"/>
+        <rdfs:range rdf:resource="&mdr;ValueDomain"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&mdr;expressingDataElementConceptExpression">
+        <owl:inverseOf rdf:resource="&mdr;expressedByDataElementConceptExpression"/>
+        <rdfs:domain rdf:resource="&mdr;DataElement"/>
+        <rdfs:range rdf:resource="&mdr;DataElementConcept"/>
+    </owl:ObjectProperty>
+    
+     <owl:ObjectProperty rdf:about="&mdr;inputToDerivationInput">
+        <owl:inverseOf rdf:resource="&mdr;inputingDerivationInput"/>
+        <rdfs:domain rdf:resource="&mdr;DataElement"/>
+        <rdfs:range rdf:resource="&mdr;DataElementDerivation"/>
+    </owl:ObjectProperty>
+    
+     <owl:ObjectProperty rdf:about="&mdr;derivedFromDerivationOutput">
+        <owl:inverseOf rdf:resource="&mdr;derivingDerivationOutput"/>
+        <rdfs:domain rdf:resource="&mdr;DataElement"/>
+        <rdfs:range rdf:resource="&mdr;DataElementDerivation"/>
+    </owl:ObjectProperty>
+    
+     <owl:ObjectProperty rdf:about="&mdr;exemplifiedByExemplification">
+        <owl:inverseOf rdf:resource="&mdr;exemplifyingExemplification"/>
+        <rdfs:domain rdf:resource="&mdr;DataElement"/>
+        <rdfs:range rdf:resource="&mdr;DataElementExample"/>
+    </owl:ObjectProperty>
+     
+     <owl:ObjectProperty rdf:about="&mdr;typedByDataElementRepresentationClass">
+        <owl:inverseOf rdf:resource="&mdr;typingDataElementRepresentationClass"/>
+        <rdfs:domain rdf:resource="&mdr;DataElement"/>
+        <rdfs:range rdf:resource="&mdr;RepresentationClass"/>
+    </owl:ObjectProperty>
+    <!-- &mdr;Context -->
+    
+	<owl:Class rdf:about="&mdr;Context">
+		<rdfs:subClassOf rdf:resource="&mdr;AdministeredItem"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;contextAdministrationRecord"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;contextDescription"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;contextAdministeredItemContext"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<!-- <owl:disjointWith rdf:resource="&mdr;DataElement"/>
+		<owl:disjointWith rdf:resource="&mdr;DataElementConcept"/>
+		<owl:disjointWith rdf:resource="&mdr;ObjectClass"/>
+		<owl:disjointWith rdf:resource="&mdr;Property"/> -->
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;contextAdministrationRecord">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;Context"/>
+        <rdfs:range rdf:resource="&mdr;AdministrationRecord"/>
+		<rdfs:subPropertyOf rdf:resource="&mdr;administeredItemAdministrationRecord"/>
+    </owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;contextDescription">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;Context"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:ObjectProperty rdf:about="&mdr;contextDescriptionLanguageIdentifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;Context"/>
+        <rdfs:range rdf:resource="&mdr;LanguageIdentification"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&mdr;contextAdministeredItemContext">
+        <owl:inverseOf rdf:resource="&mdr;administeredItemContextContext"/>
+        <rdfs:domain rdf:resource="&mdr;Context"/>
+        <rdfs:range rdf:resource="&mdr;AdministeredItemContext"/>
+    </owl:ObjectProperty>
+	    
+	<!-- &mdr;ClassificationScheme -->
+
+    <owl:Class rdf:about="&mdr;ClassificationScheme">
+        <rdfs:subClassOf rdf:resource="&mdr;AdministeredItem"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;containing"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;classificationSchemeAdministrationRecord"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;classificationSchemeTypeName"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <!-- <owl:disjointWith rdf:resource="&mdr;DataElement"/>
+		<owl:disjointWith rdf:resource="&mdr;DataElementConcept"/>
+		<owl:disjointWith rdf:resource="&mdr;ObjectClass"/>
+		<owl:disjointWith rdf:resource="&mdr;Property"/> -->
+	</owl:Class>	
+	
+	<owl:ObjectProperty rdf:about="&mdr;classificationSchemeAdministrationRecord">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&mdr;AdministrationRecord"/>
+        <rdfs:domain rdf:resource="&mdr;ClassificationScheme"/>
+		<rdfs:subPropertyOf rdf:resource="&mdr;administeredItemAdministrationRecord"/>
+    </owl:ObjectProperty>
+  
+     <owl:DatatypeProperty rdf:about="&mdr;classificationSchemeTypeName">
+		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mdr;ClassificationScheme"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:ObjectProperty rdf:about="&mdr;containing">
+        <rdfs:domain rdf:resource="&mdr;ClassificationScheme"/>
+        <rdfs:range rdf:resource="&mdr;ClassificationSchemeItem"/>
+		<owl:inverseOf rdf:resource="&mdr;containedIn"/>
+    </owl:ObjectProperty>
+    
+    <!-- &mdr;ClassificationSchemeItem -->
+    
+    <owl:Class rdf:about="&mdr;ClassificationSchemeItem">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;containedIn"/>
+                <owl:allValuesFrom rdf:resource="&mdr;ClassificationScheme"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;containedIn"/>
+                <owl:onClass rdf:resource="&mdr;ClassificationScheme"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;classifying"/>
+                <owl:onClass rdf:resource="&mdr;AdministeredItem"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;csiAssociatedIn"/>
+				<owl:onClass rdf:resource="&mdr;ClassificationSchemeItemAssociation"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;classificationSchemeItemTypeName">
+        <rdfs:domain rdf:resource="&mdr;ClassificationSchemeItem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="&mdr;classificationSchemeItemValue">
+        <rdfs:domain rdf:resource="&mdr;ClassificationSchemeItem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:ObjectProperty rdf:about="&mdr;containedIn">
+        <rdfs:range rdf:resource="&mdr;ClassificationScheme"/>
+        <rdfs:domain rdf:resource="&mdr;ClassificationSchemeItem"/>
+        <owl:inverseOf rdf:resource="&mdr;containing"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="&mdr;classifying">
+        <rdfs:range rdf:resource="&mdr;AdministeredItem"/>
+        <rdfs:domain rdf:resource="&mdr;ClassificationSchemeItem"/>
+		<owl:inverseOf rdf:resource="&mdr;classifiedBy"/>
+    </owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;csiAssociatedIn">
+        <rdfs:range rdf:resource="&mdr;ClassificationSchemeItemAssociation"/>
+        <rdfs:domain rdf:resource="&mdr;ClassificationSchemeItem"/>
+		<owl:inverseOf rdf:resource="&mdr;csiAssociates"/>
+    </owl:ObjectProperty>
+
+	<!-- &mdr;ClassificationSchemeItemRelationship -->
+	
+	<owl:Class rdf:about="&mdr;ClassificationSchemeItemRelationship">
+		<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;classificationSchemeItemRelationshipTypeDescription"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mdr;csiRelationshipAssociation"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+
+	<owl:DatatypeProperty rdf:about="&mdr;classificationSchemeItemRelationshipTypeDescription">
+		<rdfs:domain rdf:resource="&mdr;ClassificationSchemeItemRelationship"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;csiRelationshipAssociation">
+		<owl:inverseOf rdf:resource="&mdr;csiAssociationRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;ClassificationSchemeItemRelationship"/>
+		<rdfs:range rdf:resource="&mdr;ClassificationSchemeItemAssociation"/>
+	</owl:ObjectProperty>
+
+	<!-- &mdr;ClassificationSchemeItemAssociation -->
+	
+	<owl:Class rdf:about="&mdr;ClassificationSchemeItemAssociation">
+	  	<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;csiAssociationRelationship"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;csiAssociates"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;csiAssociationRelationship">
+		<owl:inverseOf rdf:resource="&mdr;csiRelationshipAssociation"/>
+		<rdfs:domain rdf:resource="&mdr;ClassificationSchemeItemAssociation"/>
+		<rdfs:range rdf:resource="&mdr;ClassificationSchemeItemRelationship"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;csiAssociates">
+		<owl:inverseOf rdf:resource="&mdr;csiAssociatedIn"/>
+		<rdfs:domain rdf:resource="&mdr;ClassificationSchemeItemAssociation"/>
+		<rdfs:range rdf:resource="&mdr;ClassificationSchemeItem"/>
+	</owl:ObjectProperty>   
+
+    <!-- &mdr;Organization -->
+
+    <owl:Class rdf:about="&mdr;Organization">
+    	<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;administering"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;submitting"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;organizationName"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;organizationMailAddress"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;providing"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+	<owl:ObjectProperty rdf:about="&mdr;submitting">
+		<owl:inverseOf rdf:resource="&mdr;submissionOrganization"/>
+		<rdfs:domain rdf:resource="&mdr;Organization"/>
+		<rdfs:range rdf:resource="&mdr;SubmissionRelationship"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;administering">
+		<owl:inverseOf rdf:resource="&mdr;stewardshipOrganization"/>
+		<rdfs:domain rdf:resource="&mdr;Organization"/>
+		<rdfs:range rdf:resource="&mdr;StewardshipRelationship"/>
+	</owl:ObjectProperty>
+
+	<owl:DatatypeProperty rdf:about="&mdr;organizationName">
+		<rdfs:domain rdf:resource="&mdr;Organization"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+	<owl:DatatypeProperty rdf:about="&mdr;organizationMailAddress">
+		<rdfs:domain rdf:resource="&mdr;Organization"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;providing">
+		<owl:inverseOf rdf:resource="&mdr;providedBy"/>
+		<rdfs:domain rdf:resource="&mdr;Organization"/>
+		<rdfs:range rdf:resource="&mdr;ReferenceDocument"/>
+	</owl:ObjectProperty>
+
+	<!-- &mdr;RegistrationAuthority -->
+	<owl:Class rdf:about="&mdr;RegistrationAuthority">
+		<rdfs:subClassOf rdf:resource="&mdr;Organization"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;documentationLanguageIdentifier"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;registrationAuthorityIdentifier"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;registering"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;representedBy"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+	<owl:ObjectProperty rdf:about="&mdr;registrationAuthorityIdentifier">
+		<rdfs:domain rdf:resource="&mdr;RegistrationAuthority"/>
+		<rdfs:range rdf:resource="&mdr;RegistrationAuthorityIdentifier"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;documentationLanguageIdentifier">
+		<rdfs:domain rdf:resource="&mdr;RegistrationAuthority"/>
+		<rdfs:range rdf:resource="&mdr;LanguageIdentification"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;registering">
+		<owl:inverseOf rdf:resource="&mdr;registeredBy"/>
+		<rdfs:domain rdf:resource="&mdr;RegistrationAuthority"/>
+		<rdfs:range rdf:resource="&mdr;AdministeredItem"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;representedBy">
+		<owl:inverseOf rdf:resource="&mdr;represents"/>
+		<rdfs:domain rdf:resource="&mdr;RegistrationAuthority"/>
+		<rdfs:range rdf:resource="&mdr;Registrar"/>
+	</owl:ObjectProperty>
+	
+
+	<!-- &mdr;Registrar -->
+	<owl:Class rdf:about="&mdr;Registrar">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;registrarIdentifier"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;registrarContact"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;represents"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;registrarContact">
+		<rdfs:domain rdf:resource="&mdr;Registrar"/>
+		<rdfs:range rdf:resource="&mdr;Contact"/>
+	</owl:ObjectProperty>
+
+	<owl:DatatypeProperty rdf:about="&mdr;registrarIdentifier">
+		<rdfs:domain rdf:resource="&mdr;Registrar"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;represents">
+		<owl:inverseOf rdf:resource="&mdr;representedBy"/>
+		<rdfs:domain rdf:resource="&mdr;Registrar"/>
+		<rdfs:range rdf:resource="&mdr;RegistrationAuthority"/>
+	</owl:ObjectProperty>
+
+
+	<!-- &mdr;ReferenceDocument -->
+	<owl:Class rdf:about="&mdr;ReferenceDocument">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;referenceDocumentIdentifier"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;referenceDocumentTypeDescription"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;referenceDocumentLanguageIdentifier"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;referenceDocumentTitle"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;describing"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;providedBy"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+	<owl:DatatypeProperty rdf:about="&mdr;referenceDocumentIdentifier">
+		<rdfs:domain rdf:resource="&mdr;ReferenceDocument"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+	<owl:DatatypeProperty rdf:about="&mdr;referenceDocumentTypeDescription">
+		<rdfs:domain rdf:resource="&mdr;ReferenceDocument"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;referenceDocumentLanguageIdentifier">
+		<rdfs:domain rdf:resource="&mdr;ReferenceDocument"/>
+		<rdfs:range rdf:resource="&mdr;LanguageIdentification"/>
+	</owl:ObjectProperty>
+
+	<owl:DatatypeProperty rdf:about="&mdr;referenceDocumentTitle">
+		<rdfs:domain rdf:resource="&mdr;ReferenceDocument"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;describing">
+		<owl:inverseOf rdf:resource="&mdr;describedBy"/>
+		<rdfs:domain rdf:resource="&mdr;ReferenceDocument"/>
+		<rdfs:range rdf:resource="&mdr;AdministeredItem"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;providedBy">
+		<owl:inverseOf rdf:resource="&mdr;providing"/>
+		<rdfs:domain rdf:resource="&mdr;ReferenceDocument"/>
+		<rdfs:range rdf:resource="&mdr;Organization"/>
+	</owl:ObjectProperty>
+
+	<!-- &mdr;Submission -->
+	<owl:Class rdf:about="&mdr;Submission">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;submissionContact"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;submits"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+	<owl:ObjectProperty rdf:about="&mdr;submits">
+		<owl:inverseOf rdf:resource="&mdr;submitter"/>
+		<rdfs:domain rdf:resource="&mdr;Submission"/>
+		<rdfs:range rdf:resource="&mdr;SubmissionRelationship"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;submissionContact">
+		<rdfs:domain rdf:resource="&mdr;Submission"/>
+		<rdfs:range rdf:resource="&mdr;Contact"/>
+	</owl:ObjectProperty>
+
+	<!-- &mdr;SubmissionRelationship -->
+	<owl:Class rdf:about="&mdr;SubmissionRelationship">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;submitter"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;submissionOrganization"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;submittedItems"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+	<owl:ObjectProperty rdf:about="&mdr;submitter">
+		<owl:inverseOf rdf:resource="&mdr;submits"/>
+		<rdfs:domain rdf:resource="&mdr;SubmissionRelationship"/>
+		<rdfs:range rdf:resource="&mdr;Submission"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;submissionOrganization">
+		<owl:inverseOf rdf:resource="&mdr;submitting"/>
+		<rdfs:domain rdf:resource="&mdr;SubmissionRelationship"/>
+		<rdfs:range rdf:resource="&mdr;Organization"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;submittedItems">
+        <owl:inverseOf rdf:resource="&mdr;submittedBy"/>
+		<rdfs:domain rdf:resource="&mdr;SubmissionRelationship"/>
+		<rdfs:range rdf:resource="&mdr;AdministeredItem"/>
+	</owl:ObjectProperty>
+
+	<!-- &mdr;Stewardship -->
+	<owl:Class rdf:about="&mdr;Stewardship">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;stewardshipContact"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;administers"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+	<owl:ObjectProperty rdf:about="&mdr;administers">
+		<owl:inverseOf rdf:resource="&mdr;administer"/>
+		<rdfs:domain rdf:resource="&mdr;Stewardship"/>
+		<rdfs:range rdf:resource="&mdr;StewardshipRelationship"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;stewardshipContact">
+		<rdfs:domain rdf:resource="&mdr;Stewardship"/>
+		<rdfs:range rdf:resource="&mdr;Contact"/>
+	</owl:ObjectProperty>
+
+	<!-- &mdr;StewardshipRelationship -->
+	<owl:Class rdf:about="&mdr;StewardshipRelationship">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;administer"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;stewardshipOrganization"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;administeredItems"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+	<owl:ObjectProperty rdf:about="&mdr;administer">
+		<owl:inverseOf rdf:resource="&mdr;administers"/>
+		<rdfs:domain rdf:resource="&mdr;StewardshipRelationship"/>
+		<rdfs:range rdf:resource="&mdr;Stewardship"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;stewardshipOrganization">
+		<owl:inverseOf rdf:resource="&mdr;administering"/>
+		<rdfs:domain rdf:resource="&mdr;StewardshipRelationship"/>
+		<rdfs:range rdf:resource="&mdr;Organization"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;administeredItems">
+        <owl:inverseOf rdf:resource="&mdr;administeredBy"/>
+		<rdfs:domain rdf:resource="&mdr;StewardshipRelationship"/>
+		<rdfs:range rdf:resource="&mdr;AdministeredItem"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;AdministeredItemContext -->
+	
+	<owl:Class rdf:about="&mdr;AdministeredItemContext">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;administeredItemContextTerminologicalEntry"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;administeredItemContextContext"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;grouping">
+		<owl:inverseOf rdf:resource="&mdr;having"/>
+		<rdfs:domain rdf:resource="&mdr;AdministeredItemContext"/>
+		<rdfs:range rdf:resource="&mdr;AdministeredItem"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;administeredItemContextTerminologicalEntry">
+		<owl:inverseOf rdf:resource="&mdr;terminologicalEntryAdministeredItemContext"/>
+		<rdfs:domain rdf:resource="&mdr;AdministeredItemContext"/>
+		<rdfs:range rdf:resource="&mdr;TerminologicalEntry"/>
+	</owl:ObjectProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;administeredItemContextContext">
+		<owl:inverseOf rdf:resource="&mdr;contextAdministeredItemContext"/>
+		<rdfs:domain rdf:resource="&mdr;AdministeredItemContext"/>
+		<rdfs:range rdf:resource="&mdr;Context"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;TerminologicalEntry -->
+
+	<owl:Class rdf:about="&mdr;TerminologicalEntry">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;containingTerminologicalEntryLanguage"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;containingTerminologicalEntryLanguage">
+		<owl:inverseOf rdf:resource="&mdr;partitioning"/>
+		<rdfs:domain rdf:resource="&mdr;TerminologicalEntry"/>
+		<rdfs:range rdf:resource="&mdr;LanguageSection"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;terminologicalEntryAdministeredItemContext">
+		<owl:inverseOf rdf:resource="&mdr;administeredItemContextTerminologicalEntry"/>
+		<rdfs:domain rdf:resource="&mdr;TerminologicalEntry"/>
+		<rdfs:range rdf:resource="&mdr;AdministeredItemContext"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;LanguageSection -->
+	<owl:Class rdf:about="&mdr;LanguageSection">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;languageSectionLanguageIdentifier"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;partitioning">
+		<owl:inverseOf rdf:resource="&mdr;containingTerminologicalEntryLanguage"/>
+		<rdfs:domain rdf:resource="&mdr;LanguageSection"/>
+		<rdfs:range rdf:resource="&mdr;TerminologicalEntry"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;containingNameEntry">
+		<owl:inverseOf rdf:resource="&mdr;namingEmtryOf"/>
+		<rdfs:domain rdf:resource="&mdr;LanguageSection"/>
+		<rdfs:range rdf:resource="&mdr;Designation"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;containingDefinitionEntry">
+		<owl:inverseOf rdf:resource="&mdr;definingEntryOf"/>
+		<rdfs:domain rdf:resource="&mdr;LanguageSection"/>
+		<rdfs:range rdf:resource="&mdr;Definition"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;languageSectionLanguageIdentifier">
+		<rdfs:domain rdf:resource="&mdr;LanguageSection"/>
+		<rdfs:range rdf:resource="&mdr;LanguageIdentification"/>
+	</owl:ObjectProperty>
+		
+	<!-- &mdr;Designation -->
+	<owl:Class rdf:about="&mdr;Designation">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;namingEntryOf"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;specificallyReferencing"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;name"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;preferredDesignation"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;namingEntryOf">
+		<owl:inverseOf rdf:resource="&mdr;containingNameEntry"/>
+		<rdfs:domain rdf:resource="&mdr;Designation"/>
+		<rdfs:range rdf:resource="&mdr;LanguageSection"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;specificallyReferencing">
+		<owl:inverseOf rdf:resource="&mdr;specificallyUsing"/>
+		<rdfs:domain rdf:resource="&mdr;Designation"/>
+		<rdfs:range rdf:resource="&mdr;Definition"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;name">
+		<rdfs:domain rdf:resource="&mdr;Designation"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+	<owl:DatatypeProperty rdf:about="&mdr;preferredDesignation">
+		<rdfs:domain rdf:resource="&mdr;Designation"/>
+		<rdfs:range rdf:resource="&xsd;boolean"/>
+	</owl:DatatypeProperty>
+	
+	<!-- &mdr;Definition -->
+	<owl:Class rdf:about="&mdr;Definition">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;definingEntryOf"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;specificallyUsing"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;definitionText"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;preferredDefinition"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;definitionSourceReference"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;definingEntryOf">
+		<owl:inverseOf rdf:resource="&mdr;containingDefinitionEntry"/>
+		<rdfs:domain rdf:resource="&mdr;Definition"/>
+		<rdfs:range rdf:resource="&mdr;LanguageSection"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;specificallyUsing">
+		<owl:inverseOf rdf:resource="&mdr;specificallyReferencing"/>
+		<rdfs:domain rdf:resource="&mdr;Definition"/>
+		<rdfs:range rdf:resource="&mdr;Designation"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;definitionText">
+		<rdfs:domain rdf:resource="&mdr;Definition"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+	<owl:DatatypeProperty rdf:about="&mdr;preferredDefinition">
+		<rdfs:domain rdf:resource="&mdr;Definition"/>
+		<rdfs:range rdf:resource="&xsd;boolean"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;definitionSourceReference">
+		<rdfs:domain rdf:resource="&mdr;Definition"/>
+		<rdfs:range rdf:resource="&mdr;ReferenceDocument"/>
+	</owl:ObjectProperty>
+
+	<!-- &mdr;ConceptualDomain -->
+	<owl:Class rdf:about="&mdr;ConceptualDomain">
+		<rdfs:subClassOf rdf:resource="&mdr;AdministeredItem"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;conceptualDomainAdministrationRecord"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;dimensionality"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;representedByConceptualDomainRepresentation"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;specifyingDataElementConceptConceptualDomainRelationship"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;conceptualDomainAdministrationRecord">
+		<rdfs:domain rdf:resource="&mdr;ConceptualDomain"/>
+		<rdfs:range rdf:resource="&mdr;AdministrationRecord"/>
+		<rdfs:subPropertyOf rdf:resource="&mdr;administeredItemAdministrationRecord"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;dimensionality">
+		<rdfs:domain rdf:resource="&mdr;ConceptualDomain"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+	<owl:ObjectProperty rdf:about="&mdr;representedByConceptualDomainRepresentation">
+		<owl:inverseOf rdf:resource="&mdr;representingConceptualDomainRepresentation"/>
+		<rdfs:domain rdf:resource="&mdr;ConceptualDomain"/>
+		<rdfs:range rdf:resource="&mdr;ValueDomain"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;specifyingDataElementConceptConceptualDomainRelationship">
+		<owl:inverseOf rdf:resource="&mdr;havingDataElementConceptConceptualDomainRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;ConceptualDomain"/>
+		<rdfs:range rdf:resource="&mdr;DataElementConcept"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;relatedToConceptualDomainRelationship">
+		<owl:inverseOf rdf:resource="&mdr;relatingConceptualDomainRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;ConceptualDomain"/>
+		<rdfs:range rdf:resource="&mdr;ConceptualDomainRelationshipAssociation"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;NonEnumeratedConceptualDomain -->
+	<owl:Class rdf:about="&mdr;NonEnumeratedConceptualDomain">
+		<rdfs:subClassOf rdf:resource="&mdr;ConceptualDomain"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;nonEnumeratedConceptualDomainDescription"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;representedByNonEnumeratedConceptualDomainRepresentation"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;nonEnumeratedConceptualDomainDescription">
+		<rdfs:domain rdf:resource="&mdr;NonEnumeratedConceptualDomain"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;representedByNonEnumeratedConceptualDomainRepresentation">
+		<owl:inverseOf rdf:resource="&mdr;representingNonEnumeratedConceptualDomainRepresentation"/>
+		<rdfs:domain rdf:resource="&mdr;NonEnumeratedConceptualDomain"/>
+		<rdfs:range rdf:resource="&mdr;NonEnumeratedValueDomain"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;EnumeratedConceptualDomain -->
+	<owl:Class rdf:about="&mdr;EnumeratedConceptualDomain">
+		<rdfs:subClassOf rdf:resource="&mdr;ConceptualDomain"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;containingValueMeaningSet"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;containingValueMeaningSet">
+		<owl:inverseOf rdf:resource="&mdr;containedInValueMeaningSet"/>
+		<rdfs:domain rdf:resource="&mdr;EnumeratedConceptualDomain"/>
+		<rdfs:range rdf:resource="&mdr;ValueMeaning"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;ValueDomain -->
+	<owl:Class rdf:about="&mdr;ValueDomain">
+		<rdfs:subClassOf rdf:resource="&mdr;AdministeredItem"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;valueDomainAdministrationRecord"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;valueDomainDatatype"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;valueDomainUnitOfMeasure"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;valueDomainMaximumCharacterQuantity"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;valueDomainFormat"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;representingConceptualDomainRepresentation"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;representingDataElementRepresentation"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;typedByValueDomainRepresentationClass"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;valueDomainAdministrationRecord">
+		<rdfs:domain rdf:resource="&mdr;ValueDomain"/>
+		<rdfs:range rdf:resource="&mdr;AdministrationRecord"/>
+		<rdfs:subPropertyOf rdf:resource="&mdr;administeredItemAdministrationRecord"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;valueDomainDatatype">
+		<rdfs:domain rdf:resource="&mdr;ValueDomain"/>
+		<rdfs:range rdf:resource="&mdr;Datatype"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;valueDomainUnitOfMeasure">
+		<rdfs:domain rdf:resource="&mdr;ValueDomain"/>
+		<rdfs:range rdf:resource="&mdr;UnitOfMeasure"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;valueDomainMaximumCharacterQuantity">
+		<rdfs:domain rdf:resource="&mdr;ValueDomain"/>
+		<rdfs:range rdf:resource="&xsd;integer"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;valueDomainFormat">
+		<rdfs:domain rdf:resource="&mdr;ValueDomain"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;representingConceptualDomainRepresentation">
+		<owl:inverseOf rdf:resource="&mdr;representedByConceptualDomainRepresentation"/>
+		<rdfs:domain rdf:resource="&mdr;ValueDomain"/>
+		<rdfs:range rdf:resource="&mdr;ConceptualDomain"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;representingDataElementRepresentation">
+		<owl:inverseOf rdf:resource="&mdr;representedByDataElementRepresentation"/>
+		<rdfs:domain rdf:resource="&mdr;ValueDomain"/>
+		<rdfs:range rdf:resource="&mdr;DataElement"/>
+	</owl:ObjectProperty>
+		
+	<owl:ObjectProperty rdf:about="&mdr;typedByValueDomainRepresentationClass">
+		<owl:inverseOf rdf:resource="&mdr;typingValueDomainRepresentationClass"/>
+		<rdfs:domain rdf:resource="&mdr;ValueDomain"/>
+		<rdfs:range rdf:resource="&mdr;RepresentationClass"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;relatedToValueDomainRelationship">
+		<owl:inverseOf rdf:resource="&mdr;relatingValueDomainRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;ValueDomain"/>
+		<rdfs:range rdf:resource="&mdr;ValueDomainRelationshipAssociation"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;NonEnumeratedValueDomain -->
+	<owl:Class rdf:about="&mdr;NonEnumeratedValueDomain">
+		<rdfs:subClassOf rdf:resource="&mdr;ValueDomain"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;nonEnumeratedDomainDescription"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;representingNonEnumeratedConceptualDomainRepresentation"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;nonEnumeratedDomainDescription">
+		<rdfs:domain rdf:resource="&mdr;NonEnumeratedValueDomain"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;representingNonEnumeratedConceptualDomainRepresentation">
+		<owl:inverseOf rdf:resource="&mdr;representedByNonEnumeratedConceptualDomainRepresentation"/>
+		<rdfs:domain rdf:resource="&mdr;NonEnumeratedValueDomain"/>
+		<rdfs:range rdf:resource="&mdr;NonEnumeratedConceptualDomain"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;EnumeratedValueDomain -->
+	<owl:Class rdf:about="&mdr;EnumeratedValueDomain">
+		<rdfs:subClassOf rdf:resource="&mdr;ValueDomain"/>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;containingPermissibleValueSet">
+		<owl:inverseOf rdf:resource="&mdr;containedInPermissibleValueSet"/>
+		<rdfs:domain rdf:resource="&mdr;EnumeratedValueDomain"/>
+		<rdfs:range rdf:resource="&mdr;PermissibleValue"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;PermissibleValue -->
+	<owl:Class rdf:about="&mdr;PermissibleValue">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;permissibleValueBeginDate"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;permissibleValueEndDate"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;containedInPermissibleValueSet"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;hasPermittedValue"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;hasPermissibleValueMeaning"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;permissibleValueBeginDate">
+		<rdfs:domain rdf:resource="&mdr;PermissibleValue"/>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;permissibleValueEndDate">
+		<rdfs:domain rdf:resource="&mdr;PermissibleValue"/>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;containedInPermissibleValueSet">
+		<owl:inverseOf rdf:resource="&mdr;containingPermissibleValueSet"/>
+		<rdfs:domain rdf:resource="&mdr;PermissibleValue"/>
+		<rdfs:range rdf:resource="&mdr;EnumeratedValueDomain"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;hasPermittedValue">
+		<owl:inverseOf rdf:resource="&mdr;usedInPermittedValue"/>
+		<rdfs:domain rdf:resource="&mdr;PermissibleValue"/>
+		<rdfs:range rdf:resource="&mdr;Value"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;hasPermissibleValueMeaning">
+		<owl:inverseOf rdf:resource="&mdr;usedInPermissibleValueMeaning"/>
+		<rdfs:domain rdf:resource="&mdr;PermissibleValue"/>
+		<rdfs:range rdf:resource="&mdr;ValueMeaning"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;Value -->
+	<owl:Class rdf:about="&mdr;Value">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;valueItem"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;usedInPermittedValue"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;valueItem">
+		<rdfs:domain rdf:resource="&mdr;Value"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;usedInPermittedValue">
+		<owl:inverseOf rdf:resource="&mdr;hasPermittedValue"/>
+		<rdfs:domain rdf:resource="&mdr;Value"/>
+		<rdfs:range rdf:resource="&mdr;PermissibleValue"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;ValueMeaning -->
+	<owl:Class rdf:about="&mdr;ValueMeaning">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;valueMeaningIdentifier"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;valueMeaningDescription"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;valueMeaningBeginDate"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;valueMeaningEndDate"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;usedInPermissibleValueMeaning"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;containedInValueMeaningSet"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;valueMeaningIdentifier">
+		<rdfs:domain rdf:resource="&mdr;ValueMeaning"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;valueMeaningDescription">
+		<rdfs:domain rdf:resource="&mdr;ValueMeaning"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;valueMeaningBeginDate">
+		<rdfs:domain rdf:resource="&mdr;ValueMeaning"/>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;valueMeaningEndDate">
+		<rdfs:domain rdf:resource="&mdr;ValueMeaning"/>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;usedInPermissibleValueMeaning">
+		<owl:inverseOf rdf:resource="&mdr;hasPermissibleValueMeaning"/>
+		<rdfs:domain rdf:resource="&mdr;ValueMeaning"/>
+		<rdfs:range rdf:resource="&mdr;PermissibleValue"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;containedInValueMeaningSet">
+		<owl:inverseOf rdf:resource="&mdr;containingValueMeaningSet"/>
+		<rdfs:domain rdf:resource="&mdr;ValueMeaning"/>
+		<rdfs:range rdf:resource="&mdr;EnumeratedConceptualDomain"/>
+	</owl:ObjectProperty>
+
+	<!-- &mdr;Datatype -->
+
+	<owl:Class rdf:about="&mdr;Datatype">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;datatypeName"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;datatypeDescription"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;datatypeSchemeReference"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;datatypeAnnotation"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;datatypeName">
+		<rdfs:domain rdf:resource="&mdr;Datatype"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;datatypeDescription">
+		<rdfs:domain rdf:resource="&mdr;Datatype"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+	<owl:DatatypeProperty rdf:about="&mdr;datatypeSchemeReference">
+		<rdfs:domain rdf:resource="&mdr;Datatype"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;datatypeAnnotation">
+		<rdfs:domain rdf:resource="&mdr;Datatype"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+		
+	<!-- &mdr;UnitOfMeasure -->
+
+	<owl:Class rdf:about="&mdr;UnitOfMeasure">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;unitOfMeasureName"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;unitOfMeasurePrecision"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;unitOfMeasureName">
+		<rdfs:domain rdf:resource="&mdr;UnitOfMeasure"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;unitOfMeasurePrecision">
+		<rdfs:domain rdf:resource="&mdr;UnitOfMeasure"/>
+		<rdfs:range rdf:resource="&xsd;integer"/>
+	</owl:DatatypeProperty>
+	
+	<!-- &mdr;DerivationRule -->
+
+	<owl:Class rdf:about="&mdr;DerivationRule">
+		<rdfs:subClassOf rdf:resource="&mdr;AdministeredItem"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;derivationRuleAdministrationRecord"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;derivationRuleSpecification"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;appliedToDerivationRuleApplication"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;derivationRuleAdministrationRecord">
+		<rdfs:domain rdf:resource="&mdr;DerivationRule"/>
+		<rdfs:range rdf:resource="&mdr;PermissibleValue"/>
+		<rdfs:subPropertyOf rdf:resource="&mdr;administeredItemAdministrationRecord"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;derivationRuleSpecification">
+		<rdfs:domain rdf:resource="&mdr;DerivationRule"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;appliedToDerivationRuleApplication">
+		<owl:inverseOf rdf:resource="&mdr;applyingDerivationRuleApplication"/>
+		<rdfs:domain rdf:resource="&mdr;DerivationRule"/>
+		<rdfs:range rdf:resource="&mdr;DataElementDerivation"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;DataElementDerivation -->
+	
+	<owl:Class rdf:about="&mdr;DataElementDerivation">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;applyingDerivationRuleApplication"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;inputingDerivationInput"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;derivingDerivationOutput"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;applyingDerivationRuleApplication">
+		<owl:inverseOf rdf:resource="&mdr;appliedToDerivationRuleApplication"/>
+		<rdfs:domain rdf:resource="&mdr;DataElementDerivation"/>
+		<rdfs:range rdf:resource="&mdr;DerivationRule"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;inputingDerivationInput">
+		<owl:inverseOf rdf:resource="&mdr;inputToDerivationInput"/>
+		<rdfs:domain rdf:resource="&mdr;DataElementDerivation"/>
+		<rdfs:range rdf:resource="&mdr;DataElement"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;derivingDerivationOutput">
+		<owl:inverseOf rdf:resource="&mdr;derivedFromDerivationOutput"/>
+		<rdfs:domain rdf:resource="&mdr;DataElementDerivation"/>
+		<rdfs:range rdf:resource="&mdr;DataElement"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;DataElementExample -->
+	
+	<owl:Class rdf:about="&mdr;DataElementExample">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;exemplifyingExemplification"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;dataElementExampleItem"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;exemplifyingExemplification">
+		<owl:inverseOf rdf:resource="&mdr;exemplifiedByExemplification"/>
+		<rdfs:domain rdf:resource="&mdr;DataElementExample"/>
+		<rdfs:range rdf:resource="&mdr;DataElement"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;dataElementExampleItem">
+		<rdfs:domain rdf:resource="&mdr;DataElementExample"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<!-- &mdr;RepresentationClass -->
+	
+	<owl:Class rdf:about="&mdr;RepresentationClass">
+		<rdfs:subClassOf rdf:resource="&mdr;AdministeredItem"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;representationClassAdministrationRecord"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;typingValueDomainRepresentationClass"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;typingDataElementRepresentationClass"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;representationClassAdministrationRecord">
+		<rdfs:domain rdf:resource="&mdr;RepresentationClass"/>
+		<rdfs:range rdf:resource="&mdr;AdministrationRecord"/>
+		<rdfs:subPropertyOf rdf:resource="&mdr;administeredItemAdministrationRecord"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;typingValueDomainRepresentationClass">
+		<owl:inverseOf rdf:resource="&mdr;typedByValueDomainRepresentationClass"/>
+		<rdfs:domain rdf:resource="&mdr;RepresentationClass"/>
+		<rdfs:range rdf:resource="&mdr;ValueDomain"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;typingDataElementRepresentationClass">
+		<owl:inverseOf rdf:resource="&mdr;typedByDataElementRepresentationClass"/>
+		<rdfs:domain rdf:resource="&mdr;RepresentationClass"/>
+		<rdfs:range rdf:resource="&mdr;DataElement"/>
+	</owl:ObjectProperty>
+	
+	<!-- &mdr;Concept -->
+	
+	<owl:Class rdf:about="&mdr;Concept">
+		<rdfs:subClassOf rdf:resource="&mdr;ObjectClass"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;usedInConceptRelationship"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;usedInConceptRelationship">
+		<owl:inverseOf rdf:resource="&mdr;usingConceptRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;Concept"/>
+		<rdfs:range rdf:resource="&mdr;ConceptRelationship"/>
+	</owl:ObjectProperty>
+	
+	<!-- mdr;ConceptRelationship -->
+	<owl:Class rdf:about="&mdr;ConceptRelationship">
+		<rdfs:subClassOf rdf:resource="&mdr;ObjectClass"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;usingConceptRelationship"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;conceptRelationshipTypeDescription"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;usingConceptRelationship">
+		<owl:inverseOf rdf:resource="&mdr;usedInConceptRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;ConceptRelationship"/>
+		<rdfs:range rdf:resource="&mdr;Concept"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;conceptRelationshipTypeDescription">
+		<rdfs:domain rdf:resource="&mdr;ConceptRelationship"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<!-- &mdr;DataElementConceptRelationship -->
+	
+	<owl:Class rdf:about="&mdr;DataElementConceptRelationship">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;describingDataElementConceptRelationship"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;dataElementConceptRelationshipTypeDescription"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>		
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;describingDataElementConceptRelationship">
+		<owl:inverseOf rdf:resource="&mdr;describedByDataElementConceptRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;DataElementConceptRelationship"/>
+		<rdfs:range rdf:resource="&mdr;DataElementConceptRelationshipAssociation"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;dataElementConceptRelationshipTypeDescription">
+		<rdfs:domain rdf:resource="&mdr;DataElementConceptRelationship"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<!-- &mdr;DataElementConceptRelationshipAssociation -->
+	
+	<owl:Class rdf:about="&mdr;DataElementConceptRelationshipAssociation">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;relatingDataElementConceptRelationship"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;describedByDataElementConceptRelationship"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>		
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;relatingDataElementConceptRelationship">
+		<owl:inverseOf rdf:resource="&mdr;relatedToDataElementConceptRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;DataElementConceptRelationshipAssociation"/>
+		<rdfs:range rdf:resource="&mdr;DataElementConcept"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;describedByDataElementConceptRelationship">
+		<owl:inverseOf rdf:resource="&mdr;describingDataElementConceptRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;DataElementConceptRelationshipAssociation"/>
+		<rdfs:range rdf:resource="&mdr;DataElementConceptRelationship"/>
+	</owl:ObjectProperty>	
+	
+	<!-- &mdr;ConceptualDomainRelationship -->
+	
+	<owl:Class rdf:about="&mdr;ConceptualDomainRelationship">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;describingConceptualDomainRelationship"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;conceptualDomainRelationshipTypeDescription"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>		
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;describingConceptualDomainRelationship">
+		<owl:inverseOf rdf:resource="&mdr;describedByConceptualDomainRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;ConceptualDomainRelationship"/>
+		<rdfs:range rdf:resource="&mdr;ConceptualDomainRelationshipAssociation"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;conceptualDomainRelationshipTypeDescription">
+		<rdfs:domain rdf:resource="&mdr;ConceptualDomainRelationship"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<!-- &mdr;ConceptualDomainRelationshipAssociation -->
+	
+	<owl:Class rdf:about="&mdr;ConceptualDomainRelationshipAssociation">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;relatingConceptualDomainRelationship"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;describedByConceptualDomainRelationship"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>		
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;relatingConceptualDomainRelationship">
+		<owl:inverseOf rdf:resource="&mdr;relatedToConceptualDomainRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;ConceptualDomainRelationshipAssociation"/>
+		<rdfs:range rdf:resource="&mdr;ConceptualDomain"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;describedByConceptualDomainRelationship">
+		<owl:inverseOf rdf:resource="&mdr;describingConceptualDomainRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;ConceptualDomainRelationshipAssociation"/>
+		<rdfs:range rdf:resource="&mdr;ConceptualDomainRelationship"/>
+	</owl:ObjectProperty>		
+	
+	<!-- &mdr;ValueDomainRelationship -->
+	
+	<owl:Class rdf:about="&mdr;ValueDomainRelationship">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;describingValueDomainRelationship"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;valueDomainRelationshipTypeDescription"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>		
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;describingValueDomainRelationship">
+		<owl:inverseOf rdf:resource="&mdr;describedByValueDomainRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;ValueDomainRelationship"/>
+		<rdfs:range rdf:resource="&mdr;ValueDomainRelationshipAssociation"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&mdr;valueDomainRelationshipTypeDescription">
+		<rdfs:domain rdf:resource="&mdr;ValueDomainRelationship"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<!-- &mdr;ValueDomainRelationshipAssociation -->
+	
+	<owl:Class rdf:about="&mdr;ValueDomainRelationshipAssociation">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;relatingValueDomainRelationship"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&mdr;describedByValueDomainRelationship"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>		
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&mdr;relatingValueDomainRelationship">
+		<owl:inverseOf rdf:resource="&mdr;relatedToValueDomainRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;ValueDomainRelationshipAssociation"/>
+		<rdfs:range rdf:resource="&mdr;ValueDomain"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&mdr;describedByValueDomainRelationship">
+		<owl:inverseOf rdf:resource="&mdr;describingValueDomainRelationship"/>
+		<rdfs:domain rdf:resource="&mdr;ValueDomainRelationshipAssociation"/>
+		<rdfs:range rdf:resource="&mdr;ValueDomainRelationship"/>
+	</owl:ObjectProperty>
+	
+	<!-- Default classes to create the parent Context (Context of Contexts) -->
+	
+	<owl:Class rdf:about="&mdr;MDRRegistrationAuthorityIdentifier">
+		<rdfs:subClassOf rdf:resource="&mdr;RegistrationAuthorityIdentifier"/>
+		<mdr:internationalCodeDesignator>Semantic MDR</mdr:internationalCodeDesignator>
+		<mdr:organizationIdentifier>eu.salusproject.mdr</mdr:organizationIdentifier>
+    </owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRContextItemIdentifier">
+		<rdfs:subClassOf rdf:resource="&mdr;ItemIdentifier"/>
+		<mdr:itemRegistrationAuthorityIdentifier rdf:resource="&mdr;MDRRegistrationAuthorityIdentifier" />
+		<mdr:dataIdentifier>edaaf6fa-c198-4700-a8a4-d81c3b085498</mdr:dataIdentifier>
+		<mdr:version>0.1</mdr:version>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRContextAdministrationRecord">
+		<rdfs:subClassOf rdf:resource="&mdr;AdministrationRecord"/>
+		<mdr:administeredItemIdentifier rdf:resource="&mdr;MDRContextItemIdentifier" />
+		<mdr:registrationStatus>Qualified</mdr:registrationStatus>
+		<mdr:administrativeStatus>Qualified</mdr:administrativeStatus>
+		<mdr:creationDate rdf:datatype="&xsd;dateTime">2012-12-21T15:38:00</mdr:creationDate>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRLanguageIdentification">
+		<rdfs:subClassOf rdf:resource="&mdr;LanguageIdentification"/>
+		<mdr:languageIdentifier>eng</mdr:languageIdentifier>
+		<mdr:countryIdentifier>TR</mdr:countryIdentifier>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRRegistrationAuthority">
+		<rdfs:subClassOf rdf:resource="&mdr;RegistrationAuthority"/>
+		<mdr:registrationAuthorityIdentifier rdf:resource="&mdr;MDRRegistrationAuthorityIdentifier" />
+		<mdr:documentationLanguageIdentifier rdf:resource="&mdr;MDRLanguageIdentification" />
+		<mdr:organizationName>SRDC Software Research Development Consultancy Ltd.</mdr:organizationName>
+		<mdr:organizationMailAddress>srdc@srdc.com.tr</mdr:organizationMailAddress>
+		<mdr:registering rdf:resource="&mdr;MDRContext" />
+		<mdr:submitting rdf:resource="&mdr;MDRContextSubmissionRelationship" />
+		<mdr:administering rdf:resource="&mdr;MDRContextStewardshipRelationship" />
+		<mdr:representedBy rdf:resource="&mdr;MDRRegistrar" />
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRRegistrar">
+		<rdfs:subClassOf rdf:resource="&mdr;Registrar" />
+		<mdr:registrarIdentifier>eu.salusproject</mdr:registrarIdentifier>
+		<mdr:registrarContact rdf:resource="&mdr;MDRContact" />
+		<mdr:represents rdf:resource="&mdr;MDRRegistrationAuthority" />
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRContact">
+		<rdfs:subClassOf rdf:resource="&mdr;Contact"/>
+		<mdr:contactName>Semantic MDR Contact</mdr:contactName>
+		<mdr:contactInformation>salus-srdc@srdc.com.tr</mdr:contactInformation>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRStewardship">
+		<rdfs:subClassOf rdf:resource="&mdr;Stewardship"/>
+		<mdr:stewardshipContact rdf:resource="&mdr;MDRContact" />
+		<mdr:administers rdf:resource="&mdr;MDRContextStewardshipRelationship" />
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRSubmission">
+		<rdfs:subClassOf rdf:resource="&mdr;Submission"/>
+		<mdr:submissionContact rdf:resource="&mdr;MDRContact" />
+		<mdr:submits rdf:resource="&mdr;MDRContextSubmissionRelationship" />
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRContextSubmissionRelationship">
+		<rdfs:subClassOf rdf:resource="&mdr;SubmissionRelationship"/>
+		<mdr:submitter rdf:resource="&mdr;MDRSubmission" />
+		<mdr:submissionOrganization rdf:resource="&mdr;MDRRegistrationAuthority" />
+		<mdr:submittedItems rdf:resource="&mdr;MDRContext" />
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRContextStewardshipRelationship">
+		<rdfs:subClassOf rdf:resource="&mdr;StewardshipRelationship"/>
+		<mdr:administer rdf:resource="&mdr;MDRStewardship" />
+		<mdr:stewardshipOrganization rdf:resource="&mdr;MDRRegistrationAuthority" />
+		<mdr:administeredItems rdf:resource="&mdr;MDRContext" />
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRContextLanguageSection">
+		<rdfs:subClassOf rdf:resource="&mdr;LanguageSection"/>
+		<mdr:languageSectionLanguageIdentifier rdf:resource="&mdr;MDRLanguageIdentification" />
+		<mdr:containingNameEntry rdf:resource="&mdr;MDRContextDesignation" />
+		<mdr:containingDefinitionEntry rdf:resource="&mdr;MDRContextDefinition" />
+		<mdr:partitioning rdf:resource="&mdr;MDRContextTerminologicalEntry" />
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRContextDesignation">
+		<rdfs:subClassOf rdf:resource="&mdr;Designation"/>
+		<mdr:name>Semantic MDR Default/Parent Context</mdr:name>
+		<mdr:namingEntryOf rdf:resource="&mdr;MDRContextLanguageSection" />
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRContextDefinition">
+		<rdfs:subClassOf rdf:resource="&mdr;Definition"/>
+		<mdr:definitionText>Default (parent) Context for all other Contexs or AdministeredItems which will belong to the default Context of the Semantic MDR</mdr:definitionText>
+		<mdr:definingEntryOf rdf:resource="&mdr;MDRContextLanguageSection" />
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRContextContext">
+		<rdfs:subClassOf rdf:resource="&mdr;AdministeredItemContext"/>
+		<mdr:grouping rdf:resource="&mdr;MDRContext" />
+		<mdr:administeredItemContextTerminologicalEntry rdf:resource="&mdr;MDRContextTerminologicalEntry" />
+		<mdr:administeredItemContextContext rdf:resource="&mdr;MDRContext" />
+	</owl:Class>
+	
+	<owl:Class rdf:about="&mdr;MDRContextTerminologicalEntry">
+		<rdfs:subClassOf rdf:resource="&mdr;TerminologicalEntry" />
+		<mdr:containingTerminologicalEntryLanguage rdf:resource="&mdr;MDRContextLanguageSection" />
+		<mdr:terminologicalEntryAdministeredItemContext rdf:resource="&mdr;MDRContextContext" />
+	</owl:Class>
+	
+	<!-- The parent MDR Context -->
+	<owl:Class rdf:about="&mdr;MDRContext">
+		<rdfs:subClassOf rdf:resource="&mdr;Context"/>
+		<mdr:contextDescription rdf:datatype="&xsd;string">Default Context where all other Contexts are named and defined on - MetaData Registry itself</mdr:contextDescription>
+		<mdr:contextAdministrationRecord rdf:resource="&mdr;MDRContextAdministrationRecord" />
+		<mdr:registeredBy rdf:resource="&mdr;MDRRegistrationAuthority" />
+		<mdr:submittedBy rdf:resource="&mdr;MDRContextSubmissionRelationship" />
+		<mdr:administeredBy rdf:resource="&mdr;MDRContextStewardshipRelationship" />
+		<mdr:having rdf:resource="&mdr;MDRContextContext" />
+		<mdr:contextAdministeredItemContext rdf:resource="&mdr;MDRContextContext" />
+	</owl:Class>
+	
+</rdf:RDF>

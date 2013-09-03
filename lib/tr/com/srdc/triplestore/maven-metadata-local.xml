@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>tr.com.srdc</groupId>
+  <artifactId>triplestore</artifactId>
+  <versioning>
+    <release>1.0.0</release>
+    <versions>
+      <version>1.0.0</version>
+    </versions>
+    <lastUpdated>20130823130659</lastUpdated>
+  </versioning>
+</metadata>

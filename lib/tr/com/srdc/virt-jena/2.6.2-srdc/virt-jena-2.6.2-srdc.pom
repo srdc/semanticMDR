@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+	<groupId>tr.com.srdc</groupId>
+	<artifactId>virt-jena</artifactId>
+	<version>2.6.2-srdc</version>
+	<packaging>jar</packaging>
+	<name>Virtuoso Jena Wrapper - SRDC updates with org.apache.jena</name>
+	
+    <dependencies>
+		<dependency>
+			<groupId>virtuoso</groupId>
+			<artifactId>virtjdbc4</artifactId>
+			<version>4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-core</artifactId>
+			<version>2.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-arq</artifactId>
+			<version>2.10.0</version>
+		</dependency>
+    </dependencies>
+	<repositories>
+		<repository>
+			<id>in-project-virtjdbc</id>
+			<name>In Project Repo for VirtJDBC</name>
+			<url>file://${project.basedir}/lib</url>
+		</repository>
+	</repositories>
+
+</project>

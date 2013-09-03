@@ -1,0 +1,126 @@
+/* ==========================================================================
+ Author's custom styles
+ ========================================================================== */
+textarea.resize-v {
+	resize: vertical;
+}
+
+#loadingOverlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	background-color: black;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
+	opacity: 0.85;
+	display: none;
+}
+
+#loadingIndicator {
+	margin-left: 50%;
+	margin-top: 25%;
+	position: fixed;
+}
+
+.middle-v {
+	vertical-align: -webkit-baseline-middle !important;
+	vertical-align: middle !important;
+}
+
+.input-append input.input-block-level {
+	width: 80%;
+}
+
+.input-append button.input-block-level {
+	width: 20%;
+	display: initial;
+}
+
+#propertyResultHeader, #conceptualDomainResultHeader {
+	margin-bottom: 0px;
+}
+
+.modal-input .input-block-level {
+	border-top-left-radius: 0px;
+	display: inline-block;
+	width: 78%;
+}
+
+.modal-input span.add-on {
+	height: initial;
+	white-space: normal;
+	width: 20%;
+}
+
+.modal-input span.add-on-fat {
+	width: 30%
+}
+
+.modal-input span.add-on-fat + .input-block-level {
+	width: 68%;
+}
+
+.modal-input span.add-on-tall {
+	height: 40px;
+}
+
+.modal-input span.add-on-tall + * {
+	height: 50px;
+}
+
+.modal-input textarea {
+	margin-bottom: 0px;
+}
+
+.modal-body fieldset {
+	width: 100%;
+}
+
+.detailed-table table tbody tr th{
+	width: 30%;
+}
+
+.detailed-table table caption h3 , .detailed-table table caption h5 {
+	color: rgb(71, 104, 136);
+}
+.table-indented{
+	width: 95% !important;
+	margin-left: 5%;
+}
+
+.popover-content{
+	font-size: initial;
+}
+
+.typeahead{
+	font-size: 14px;
+}
+
+/* ==========================================================================
+ Author's custom styles @mkubilayk
+ ========================================================================== */
+ 
+.addbut {
+	float:right;
+	margin-top: 5px;
+}
+
+.tablehead {
+	background-color: #333;
+	color: #eee;
+	margin-bottom: 30px;
+	padding-left: 60px;
+	padding-right: 60px;
+	margin-left: -60px;
+	display: inline-block;
+}
+
+.tabletitle {
+	margin: 0px;
+}
+
+.signout {
+	margin-top: 0px;
+}

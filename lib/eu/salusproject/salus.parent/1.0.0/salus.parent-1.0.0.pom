@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>eu.salusproject</groupId>
+	<artifactId>salus.parent</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<name>SALUS Parent Project</name>
+	<description>Parent module which references to the dependencies which are commonly used throughout SALUS modules.</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
+	</properties>
+	
+	<build>
+		<plugins>	
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<!-- strangely, project.build.sourceEncoding does not work sometimes -->
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- SALUS PROJECT DEPENDENCIES -->
+			<!-- For authentication -->
+			<dependency>
+				<groupId>eu.salusproject</groupId>
+				<artifactId>security-privacy.authentication</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+			<dependency>
+				<groupId>eu.salusproject</groupId>
+				<artifactId>common-information-model</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+			<dependency>
+				<groupId>eu.salusproject</groupId>
+        		<artifactId>salus.configuration</artifactId>
+        		<version>1.0.0</version>
+			</dependency>
+			<dependency>
+				<groupId>eu.salusproject</groupId>
+				<artifactId>e2b-model</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+			<dependency>
+				<groupId>eu.salusproject</groupId>
+				<artifactId>semantic-services.saqm.model</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+			<dependency>
+				<groupId>eu.salusproject</groupId>
+				<artifactId>semantic-services.saqm.core</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+			<dependency>
+				<groupId>eu.salusproject</groupId>
+				<artifactId>semantic-services.qrc</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+			<dependency>
+	            <groupId>eu.salusproject</groupId>
+	            <artifactId>sat.csct.core</artifactId>
+	            <version>1.0.0</version>
+            </dependency>
+			<dependency>
+				<groupId>com.agfa.aca</groupId>
+				<artifactId>eye</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+
+			<!-- For TripleStore persistency -->
+			<dependency>
+				<groupId>tr.com.srdc</groupId>
+				<artifactId>triplestore</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+
+			<!-- JENA DEPENDENCIES -->
+			<dependency>
+				<groupId>org.apache.jena</groupId>
+				<artifactId>jena-core</artifactId>
+				<version>2.10.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.jena</groupId>
+				<artifactId>jena-arq</artifactId>
+				<version>2.10.0</version>
+			</dependency>
+
+			<!-- SLF4J + log4j Logging -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>1.7.5</version>
+			</dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.5</version>
+            </dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.17</version>
+			</dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>1.7.1</version>
+                <scope>test</scope>
+            </dependency>
+
+			<!-- APACHE COMMONS DEPENDENCY FOR UTILITIES -->
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>1.1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>2.6</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>2.4</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>3.2.1</version>
+			</dependency>
+			
+			<!-- DB & JPA Dependencies -->
+	        <dependency>
+          	  	<groupId>org.hibernate</groupId>
+	            <artifactId>hibernate-core</artifactId>
+	            <version>3.6.10.Final</version>
+	        </dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>3.6.10.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>1.3.161</version>
+			</dependency>
+
+			<!-- JUNIT DEPENDENCY FOR TESTING -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.11</version>
+				<scope>test</scope>
+			</dependency>
+
+			<!-- JERSEY for the JAX-RS API -->
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-server</artifactId>
+				<version>1.17.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-servlet</artifactId>
+				<version>1.17.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-json</artifactId>
+				<version>1.17.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-client</artifactId>
+				<version>1.17.1</version>
+			</dependency>
+			
+			<!-- RESTEasy JAX-RS -->
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jaxrs</artifactId>
+                <version>2.3.5.Final</version>
+            </dependency>
+
+			<!-- Serialization Dependencies -->
+			<dependency>
+	            <groupId>org.codehaus.jackson</groupId>
+	            <artifactId>jackson-mapper-asl</artifactId>
+	            <version>1.9.2</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>org.codehaus.jettison</groupId>
+	            <artifactId>jettison</artifactId>
+	            <version>1.1</version>
+	        </dependency>
+
+			<!-- For ServletContextListener -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>2.5</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+</project>

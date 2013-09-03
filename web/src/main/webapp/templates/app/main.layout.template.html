@@ -1,0 +1,94 @@
+<div>
+	<div id="menu" class="row-fluid">
+		<ul class="nav nav-tabs colorednav">
+			<li class="active dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" id='browseTab' href="#">Browse<b class="caret"></b></b></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a id="browseObjectClass" href="#">Object Classes</a>
+					</li>
+					<li>
+						<a id="browseDataElement" href="#">Data Elements</a>
+					</li>
+
+					<li>
+						<a id="browseConceptualDomain" href="#">Conceptual Domains</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a id='searchTab' href="#">Search</a>
+			</li>
+			<li>
+				<a id='queryTab' href="#">Query</a>
+			</li>
+			<!--<li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Import <b class="caret"></b></a>
+                <ul class="dropdown-menu" id="importerList">
+                    <li>
+                        <a id='importALL' href="#" title="Imports OMOP, CDASH, HITSPC154, BRIDG and Mappings">ALL</a>
+                    </li>
+                    <li>
+                        <a id='importOMOP' href="#" title="Observational Medical Outcomes Partnership v4.0">OMOP</a>
+                    </li>
+                    <li>
+                        <a id='importSALUSCIM' href="#" title="SASLUS CIM">SALUS CIM</a>
+                    </li>
+                    <li>
+                        <a id='importSDTM' href="#" title="Study Data Tabulation Model v1.3">SDTM</a>
+                    </li>
+                    <li>
+                        <a id='importCDASH' href="#" title="Clinical Data Acquisition Standards Harmonization v1.1">CDASH</a>
+                    </li>
+                    <li>
+                        <a id='importHITSPC154' href="#" title="Healthcare Information Technology Standards Panel C154 v1.0.1">HITSP C154</a>
+                    </li>
+                    <li>
+                        <a id='importBRIDG' href="#" title="The Biomedical Research Integrated Domain Group v3.2">BRIDG</a>
+                    </li>
+                    <li>
+                        <a id='importMappings' href="#" title="Creates mappings among imported data elements">Mappings</a>
+                    </li>
+                </ul>
+            </li>-->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Export <b class="caret"></b></a>
+                <ul class="dropdown-menu" id="importerList">
+                    <li>
+                        <a id='export-rdf-xml' href="#">RDF/XML</a>
+                    </li>
+                    <li>
+                        <a id='export-rdf-xml-abbrev' href="#">RDF/XML-ABBREV</a>
+                    </li>
+                    <li>
+                        <a id='export-n-triple' href="#">N-TRIPLE</a>
+                    </li>
+                    <li>
+                        <a id='export-turtle' href="#">TURTLE</a>
+                    </li>
+                    <li>
+                        <a id='export-n3' href="#">N3</a>
+                    </li>
+                </ul>
+            </li>
+
+			<li class="pull-right dropdown">
+				<a id="contextHeader" class="dropdown-toggle" data-toggle="dropdown" href="#">Context <b class="caret"></b> </a>
+				<ul class="dropdown-menu" id="contextSection">
+					<li>
+						<a href="#" id="addContext"><span> Add New Context</span> </a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+
+	</div>
+
+	<div class="row-fluid">
+		<div id="breadcrumbRegion"></div>
+	</div>
+
+	<div class="row-fluid">
+		<div class="span12 hero-unit" id="content"></div>
+	</div>
+</div>

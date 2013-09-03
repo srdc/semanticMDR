@@ -1,0 +1,75 @@
+<div id="modalWindow" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="contextModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+			×
+		</button>
+		<h3>Add/Update Context Model</h3>
+	</div>
+	<div class="modal-body">
+		<div id="requiredParameters">
+			<div class="input-prepend modal-input">
+				<span class="add-on">ID</span>
+				<input type='text' class="input-block-level" placeholder="Will be assigned by MDR" required='required' id="id" value="<%= id %>" disabled>
+			</div>
+			<div class="input-prepend modal-input">
+				<span class="add-on">Name</span>
+				<input type='text' class="input-block-level" placeholder="Name" required='required' id="name" value="<%= name %>">
+			</div>
+			<div class="input-prepend modal-input">
+				<span class="add-on add-on-tall">Definition</span>
+				<textarea class="input-block-level resize-v" placeholder="Definition" required='required' id="definition"><%= definition %></textarea>
+			</div>
+		</div>
+
+		<a class="btn btn-small btn-block" data-toggle="collapse" data-target="#optionalParameters" id="collapseOptional"> <i class="icon-plus"></i> Show All Parameters </a>
+
+		<br />
+
+		<div id="optionalParameters" class="collapse out">
+			<div class="input-prepend modal-input">
+				<span class="add-on add-on-tall">Administrative Note</span>
+				<textarea class="input-block-level resize-v" placeholder="Administrative Note" id="administrativeNote" disabled><%= administrativeNote %></textarea>
+			</div>
+			<div class="input-prepend modal-input">
+				<span class="add-on add-on-tall">Explanatory Comment</span>
+				<textarea class="input-block-level resize-v" placeholder="Explanatory Comment" id="explanatoryComment" disabled><%= explanatoryComment %></textarea>
+			</div>
+			<div class="input-prepend modal-input">
+				<span class="add-on add-on-fat">Registration Status</span>
+				<select class="input-block-level" placeholder="Name" id="registrationStatus" disabled>
+					<option>ALL</option>
+					<option>Application</option>
+					<option>Candidate</option>
+					<option>Proposed</option>
+					<option>Qualified</option>
+					<option>Standard</option>
+					<option>StandardizedElsewhere</option>
+					<option>Superceded</option>
+					<option>Suspended</option>
+				</select>
+			</div>
+			<div class="input-prepend modal-input">
+				<span class="add-on add-on-fat">Administrative Status</span>
+				<select class="input-block-level" placeholder="Name" id="administrativeStatus" disabled>
+					<option>ALL</option>
+					<option>Application</option>
+					<option>Candidate</option>
+					<option>Proposed</option>
+					<option>Qualified</option>
+					<option>Standard</option>
+					<option>StandardizedElsewhere</option>
+					<option>Superceded</option>
+					<option>Suspended</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">
+			Close
+		</button>
+		<button id="sendContextModelForm" class="btn btn-primary">
+			Add
+		</button>
+	</div>
+</div>

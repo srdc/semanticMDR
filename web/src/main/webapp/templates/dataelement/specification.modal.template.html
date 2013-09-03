@@ -1,0 +1,56 @@
+<div id="modalWindow" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="dataElementConceptModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+			×
+		</button>
+		<h3>Add Mapping / Extraction Specification</h3>
+	</div>
+	<div class="modal-body">
+		<div id="mappingParameters">
+			<div class="input-prepend modal-input">
+				<span class="add-on">Content Model</span>
+				<input type='text' class="input-block-level" placeholder="Content Model Name" required='required' id="mdrName" value="">
+			</div>
+			<div class="input-prepend modal-input">
+				<span class="add-on">Relationship</span>
+				<select class="input-block-level" id="relationship">
+					
+				</select>
+			</div>
+			<div class="input-prepend modal-input">
+				<span class="add-on">Data Element</span>
+				<input type="text" class="input-block-level" placeholder="Data Element Name" required='required' id="dataElement" value="">
+			</div>
+		</div>
+
+		<div id="specificationParameters">
+			<div class="input-prepend modal-input">
+				<span class="add-on">Content Model</span>
+				<select class="input-block-level" id="contentModelType">
+					<option>ASTM/HL7 CCD</option>
+					<option>BRIDG Model</option>
+				</select>
+			</div>
+			<div class="input-prepend modal-input">
+				<span class="add-on">Relationship</span>
+				<select class="input-block-level" id="extractionSpecificationType">
+					<option>XPATH</option>
+					<option>PROPRIETARY(BRIDG)</option>
+				</select>
+			</div>
+			<div class="input-prepend modal-input">
+				<span class="add-on add-on-tall">Extraction Specification</span>
+				<input type="text" class="input-block-level" placeholder="Specification" required='required' id="extractionSpecification">
+			</div>
+		</div>
+
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">
+			Close
+		</button>
+		<button id="sendSpecificationForm" class="btn btn-primary" data-dismiss="modal">
+			Add
+		</button>
+	</div>
+</div>

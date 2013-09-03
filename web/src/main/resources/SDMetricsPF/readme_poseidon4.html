@@ -1,0 +1,50 @@
+<html><head><title>SDMetrics Project Files for Poseidon 4.0/4.1</title></head>
+<body>
+
+<b>Description</b><p>
+
+<p>Metamodel, XMI transformations and metric definitions for
+Gentleware Poseidon for UML V4.0 and V4.1.</p>
+
+<p>Poseidon 4 uses the UML2.0 metamodel for statechart diagrams,
+sequence diagrams, and activity diagrams. The other diagram types
+still use a UML1.x meta model, in particular collaboration diagrams
+still use UML1.x objects, links, and stimuli. Other peculiarities
+of the XMI exporter include:</p>
+
+<ul>
+<li>In the XMI files, element types from the UML1.4 metamodel use
+namespace "UML", element types from UML2 use namespace "UML2".</li>
+<li>Object and control flows in UML2 activity graphs are not differentiated
+in the XMI file, both are encoded with UML2:ActivityEdge elements.
+Consequently, metrics and design rules that take this difference into
+account no longer apply. For some reason, object nodes are encoded with
+UML2:Pin, and there are instances of UML2:CallAction.
+ActivityEdge, Pin, and CallAction are abstract in the UML2 metamodel, so
+there should not be any instances of these types.</li>
+<li>Types of (UML1.4!) attributes and parameters no longer are encoded
+with the usual UML:Parameter.type and UML:StructuralFeature.type elements,
+but with a UML2:TypedElement.type element. So they managed to mix UML1
+and UML2 in a single model element now...</li>
+</ul>
+
+<p>The XMI transformation file takes these details into account.</p>
+
+<p><b>Contents</b></p>
+
+<table border="1">
+<tr><th>File</th><th>Description</th></tr>
+<tr><td>metamodel_poseidon4.xml</td><td>Metamodel for Poseidon 4</td></tr>
+<tr><td>xmiTrans_poseidon4.xml</td><td>XMI transformation for Poseidon 4 metamodel</td></tr>
+<tr><td>metrics_poseidon4.xml</td><td>Metric definitions for Poseidon 4</td></tr>
+</table>
+
+<p><b>Revision History</b></p>
+
+<ul><li>26-Mar-2006: initial release</li></ul>
+
+
+For the latest project files updates, visit the
+<a href="http://www.sdmetrics.com/DownPF.html">SDMetrics Project File Downloads Page</a>.
+
+</body></html>

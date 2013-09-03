@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>semantic-mdr.dex</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Class generation for DEX web services</name>
+
+	<parent>
+		<groupId>tr.com.srdc.semantic-mdr</groupId>
+		<artifactId>semantic-mdr.parent</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../parent</relativePath>
+	</parent>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>tr.com.srdc.semantic-mdr</groupId>
+			<artifactId>semantic-mdr.core</artifactId>
+		</dependency>
+
+		<!-- SLF4J + log4j Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+
+		<!-- For ServletContextListener -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+		</dependency>
+
+		<!-- For Web Services -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- This plugin generates the java stubs (POJOs) from the WSDL file 
+					using a JAXB data binding. To run this plugin manually, type: mvn cxf-codegen:wsdl2java. 
+					To run this plugin during Maven's generate-sources phase, uncomment the <executions> 
+					elements. -->
+				<!-- It is important to empty the location attribute of the address element in wsdl:service. 
+					It must be an empty string. -->
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>2.7.5</version>
+				<!--<executions> <execution> <id>generate-sources</id> <phase>generate-sources</phase> -->
+				<configuration>
+					<sourceRoot>${basedir}/src/main/java</sourceRoot>
+					<wsdlOptions>
+						<wsdlOption>
+							<wsdl>src/main/resources/DEX.wsdl</wsdl>
+						</wsdlOption>
+					</wsdlOptions>
+				</configuration>
+				<!--<goals> <goal>wsdl2java</goal> </goals> </execution> </executions> -->
+
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+</project>

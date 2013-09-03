@@ -1,0 +1,187 @@
+<div class="detailed-table">
+	<i class="icon-edit" title="Edit this data element"></i>
+	<i class="icon-remove pull-right" title="Remove this data element"></i>
+	<table class="table table-hover table-condensed table-striped">
+		<caption>
+			<h3 class="pull-left">Data Element Details</h3>
+		</caption>
+		<tbody>
+			<tr>
+				<th>Unique ID</th>
+				<td id="id"><%= id %><a id="serialize" class="pull-right" href="#" title="Display the serialized data element in ISO 11179 or IHE DEX"><i class="icon-eye-open"> </i> Serializations</a></td>
+			</tr>
+			<tr>
+				<th>Name</th>
+				<td id="name"><%= name %></td>
+			</tr>
+			<tr>
+				<th>Definition</th>
+				<td id="definition"><%= definition %></td>
+			</tr>
+			<tr>
+				<th>Value Domain</th>
+				<td id="valueDomainName"><%= valueDomainName %></td>
+			</tr>
+			<tr>
+				<th>Data Element Concept</th>
+				<td id="dataElementConceptName"><%= dataElementConceptName %></td>
+			</tr>
+			<tr>
+				<th>Registration Status</th>
+				<td id="registrationStatus"><%= registrationStatus %></td>
+			</tr>
+			<tr>
+				<th>Administrative Status</th>
+				<td id="administrativeStatus"><%= administrativeStatus %></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table class="table table-hover table-condensed table-striped">
+		<caption>
+			<h3 class="pull-left">Data Element Concept Details</h3>
+		</caption>
+		<tbody>
+			<tr>
+				<th>Name</th>
+				<td id="dataElementConceptName"><%= dataElementConceptName %></td>
+			</tr>
+			<tr>
+				<th>Conceptual Domain</th>
+				<td id="conceptualDomainName"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table class="table table-hover table-condensed table-striped ">
+		<caption>
+			<h5 class="pull-left">Object Class</h5>
+		</caption>
+		<tbody>
+			<tr>
+				<th>Object Class Name</th>
+				<td id="objectClassName"></td>
+			</tr>
+			<tr>
+				<th>Object Class Definition</th>
+				<td id="objectClassDefinition"></td>
+			</tr>
+			<tr class="hidden viewParentConcept">
+				<th>Parent Concept</th>
+				<td id="parentConceptName"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="hidden viewSubConcepts">
+		<table class="table table-hover table-condensed table-striped">
+			<caption class="pull-left">
+				<span>Subconcepts</span>
+			</caption>
+			<thead>
+				<tr>
+					<th style="width: 30%">Name</th>
+					<th>Definition</th>
+				</tr>
+			</thead>
+			<tbody id="subConcepts"></tbody>
+		</table>
+	</div>
+
+	<table class="table table-hover table-condensed table-striped">
+		<caption>
+			<h5 class="pull-left">Property</h5>
+		</caption>
+		<tbody>
+			<tr>
+				<th>Property Name</th>
+				<td id="propertyName"></td>
+			</tr>
+			<tr>
+				<th>Property Definition</th>
+				<td id="propertyDefinition"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table class="table table-hover table-condensed table-striped">
+		<caption>
+			<h3 class="pull-left">Value Domain Details</h3>
+		</caption>
+		<tbody>
+			<tr>
+				<th>Name</th>
+				<td id="valueDomainName"><%= valueDomainName %></td>
+			</tr>
+			<tr>
+				<th>Definition</th>
+				<td id="valueDomainDefinition"></td>
+			</tr>
+			<tr>
+				<th>Datatype</th>
+				<td id="datatypeName"></td>
+			</tr>
+			<tr>
+				<th>Datatype Scheme Reference</th>
+				<td id="datatypeSchemeReference"></td>
+			</tr>
+			<tr>
+				<th>Value Domain Type</th>
+				<td id="valueDomainType"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="hidden viewPermissibleValues">
+		<table class="table table-hover table-condensed table-striped ">
+			<caption>
+				<h5 class="pull-left">Permissible Values</h5>
+			</caption>
+			<thead>
+				<tr>
+					<th style="width: 30%">Value Meaning</th>
+					<th>Value Item</th>
+				</tr>
+			</thead>
+			<tbody id="permissibleValues"></tbody>
+		</table>
+	</div>
+
+	<div class="viewExtractionSpecifications">
+		<table class="table table-hover table-condensed table-striped"
+		style="width: 100%; word-wrap:break-word; table-layout: fixed;">
+			<caption>
+				<h3 class="pull-left">Extraction Specifications</h3>
+				<button class="btn btn-primary addbut" id="addExtractionSpecification" title="Add New Extraction Specification">
+					+
+				</button>
+			</caption>
+			<thead>
+				<tr>
+					<th style="width: 30%">Name</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody id="extractionSpecifications"></tbody>
+		</table>
+	</div>
+
+	<div class="viewMappings">
+		<table class="table table-hover table-condensed table-striped"
+		style="width: 100%; word-wrap:break-word; table-layout: fixed;">
+			<caption>
+				<h3 class="pull-left">Mappings</h3>
+				<button class="btn btn-primary addbut" id="addMapping" title="Add New Mapping">
+					+
+				</button>
+			</caption>
+			<thead>
+				<tr>
+					<th style="width: 30%">Name</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody id="mappings"></tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX schema: <http://schema.org/>
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX dcterms:<http://purl.org/dc/terms/>
+PREFIX dc:<http://purl.org/dc/elements/1.1/>
+PREFIX mdr:<http://www.salusproject.eu/iso11179-3/mdr#>
+PREFIX dex:<urn:ihe:qrph:dex:2013#>
+
+CONSTRUCT {
+	?de a mdr:Context.
+	?de a skos:Concept.
+	?de a dex:Context.
+	
+	?de skos:prefLabel ?displayName.
+	?de skos:definition ?definition.
+	?de schema:description ?definition.
+	?de dc:description ?definition.
+	
+	?de dc:identifier ?deuuid.
+	?de dcterms:identifier ?deuuid.
+}
+WHERE {
+	?de rdfs:subClassOf mdr:DataElement .
+	?de mdr:having ?aic .
+	?aic mdr:administeredItemContextContext ?cx.
+	?cx mdr:contextAdministrationRecord ?car.
+	?car mdr:administeredItemIdentifier ?aii.
+	?aii mdr:dataIdentifier ?uuid. 
+	
+	?aic mdr:administeredItemContextTerminologicalEntry ?te.
+	?te mdr:containingTerminologicalEntryLanguage ?ls.
+	?ls mdr:containingNameEntry ?des.
+	?des mdr:name ?displayName.
+	?ls mdr:containingDefinitionEntry ?def.
+	?def mdr:definitionText ?definition.
+
+	?arProperty rdfs:subPropertyOf mdr:administeredItemAdministrationRecord.
+	?de ?arProperty ?ar.
+	?ar mdr:administeredItemIdentifier ?ii.
+	?ii mdr:dataIdentifier ?deuuid.
+}

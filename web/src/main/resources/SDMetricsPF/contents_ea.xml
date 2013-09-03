@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sdmetricsprojectfilesets>
+    <projectfilesetlist>
+        <projectfileset>
+            <autoselect>false</autoselect>
+            <exportername></exportername>
+            <exporterversion></exporterversion>
+            <metamodel>SDMetricsResource:metamodel.xml</metamodel>
+            <metrics>SDMetricsResource:metrics.xml</metrics>
+            <name>UML 1.x and XMI 1.1-1.3 with Enterprise Architect</name>
+            <readonly>false</readonly>
+            <xmitransformation>xmiTransEA1_1.xml</xmitransformation>
+            <xmiversion>1.1;1.2;1.3</xmiversion>
+        </projectfileset>
+    </projectfilesetlist>
+</sdmetricsprojectfilesets>

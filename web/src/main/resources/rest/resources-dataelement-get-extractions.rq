@@ -1,0 +1,20 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX mdr:<http://www.salusproject.eu/iso11179-3/mdr#>
+SELECT DISTINCT ?extractionSpec WHERE { 
+	?a rdfs:subClassOf mdr:DataElement .
+	?a mdr:dataElementAdministrationRecord ?ar. 
+	?ar mdr:administeredItemIdentifier ?ii. 
+	?ii mdr:dataIdentifier ?uuid. 
+	
+	?a skos:exactMatch* ?b.
+	?b mdr:classifiedBy ?csi. 
+	?csi mdr:containedIn ?cs.
+	?cs mdr:classificationSchemeTypeName ?contentModel.
+	?csi mdr:classificationSchemeItemTypeName ?specFormat.
+	?csi mdr:classificationSchemeItemValue ?extractionSpec.
+}

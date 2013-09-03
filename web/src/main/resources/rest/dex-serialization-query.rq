@@ -1,0 +1,183 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX mdr: <http://www.salusproject.eu/iso11179-3/mdr#>
+PREFIX dex: <urn:ihe:qrph:dex:2013#>
+
+CONSTRUCT {
+    ?de a mdr:DataElement.
+	?de a skos:Concept.
+	?de a dex:DataElement.
+	
+	?de dc:identifier ?uuid.
+	?de dcterms:identifier ?uuid.
+	
+	?de dc:creator ?registrationAuthority.
+	?de schema:creator ?registrationAuthority.
+	?registrationAuthority a schema:organization.
+	?registrationAuthority a foaf:Organization.
+	?registrationAuthority dcterms:title ?registrationAuthorityName.
+	?registrationAuthority dex:registrationAuthorityName ?registrationAuthorityName.
+	
+	?de schema:version ?version.
+	
+	?de skos:prefLabel ?displayName.
+	
+	?de skos:definition ?definition.
+	?de schema:description ?definition.
+	?de dc:description ?definition.	
+	
+	?contextualDomain a skos:ConceptScheme.
+	?de skos:inScheme ?contextualDomain. 
+	?de dex:contextualDomain ?contextualDomain.
+	?contextualDomain dcterms:title ?contextualDomainName.
+	?contextualDomain dex:contextualDomainName ?contextualDomainName.
+
+	?de schema:dateCreated ?creationDate.
+	?de dc:created ?creationDate.	
+
+	?de dc:valid ?expirationDate.
+	?de schema:expires ?expirationDate.	
+
+	?de dc:modified ?revisionDate.
+	?de schema:dateModified ?revisionDate.
+	
+	?de dex:effectiveDate ?effectiveDate.
+
+	?de schema:releaseNotes ?revisionNote.
+	
+	?de dex:objectClassName ?ocName.
+	
+	?de dex:property ?propertyName.
+	
+	?de dex:valueDomain ?vd.	
+	?vd a skos:Concept.
+	?vd dex:valueDomainDatatype ?vddName.
+	?vd dex:valueDomainUnitOfMeasure ?vdUnitName.
+	?vd dex:valueSet ?conceptualDomain.
+	?conceptualDomain a skos:Concept.
+	?conceptualDomain skos:prefLabel ?valueSetName.
+	?conceptualDomain schema:version ?valueSetVersion.
+	?conceptualDomain dc:identifier ?valueSetId.
+	?conceptualDomain dcterms:identifier ?valueSetId.
+	
+	?de dex:mappingSpecification ?mappingSpecification.
+	?mappingSpecification a skos:Concept.
+	?mappingSpecification skos:inScheme ?contentModel.
+	?contentModel a skos:ConceptScheme.
+	?contentModel skos:prefLabel ?contentModelName.
+	?contentModel dc:identifier ?contentModelId.
+	?contentModel dcterms:identifier ?contentModelId.
+	
+	?mappingSpecification dc:type ?type.
+	?mappingSpecification schema:text ?mappingScript.
+	
+}
+WHERE {
+	?arProperty rdfs:subPropertyOf mdr:administeredItemAdministrationRecord.
+	?de ?arProperty ?ar.
+	?ar mdr:administeredItemIdentifier ?ii.
+	?ii mdr:dataIdentifier ?uuid.
+	
+	?de mdr:having ?aic.
+	?aic mdr:administeredItemContextTerminologicalEntry ?te.
+	?te mdr:containingTerminologicalEntryLanguage ?ls.
+	?ls mdr:containingNameEntry ?designation.
+	?ls mdr:containingDefinitionEntry ?definitionItem.
+	?designation mdr:name ?displayName.
+	?definitionItem mdr:definitionText ?definition.
+	?ii mdr:version ?version.
+
+	?aic mdr:administeredItemContextContext ?contextualDomainContext.
+	?contextualDomainContext mdr:having ?contextualaic.
+	?contextualaic mdr:administeredItemContextTerminologicalEntry ?contextualte.
+	?contextualte mdr:containingTerminologicalEntryLanguage ?contextualls.
+	?contextualls mdr:containingNameEntry ?contextualdesignation.
+	?contextualdesignation mdr:name ?contextualDomainName.
+
+	?ar mdr:creationDate ?creationDate.
+	OPTIONAL { ?ar mdr:untilDate ?expirationDate.}
+	OPTIONAL { ?ar mdr:lastChangeDate ?revisionDate.}
+	OPTIONAL { ?ar mdr:changeDescription ?revisionNote.}
+	OPTIONAL { ?ar mdr:effectiveDate ?effectiveDate.}
+
+	?de mdr:registeredBy ?registrationAuthority.
+	?registrationAuthority mdr:organizationName ?registrationAuthorityName.
+
+	?aic mdr:administeredItemContextContext ?contextualDomain.
+
+	?de mdr:expressingDataElementConceptExpression ?dec.
+	?de mdr:representedByDataElementRepresentation ?vd.
+	?vd mdr:having ?vdaic.
+	?vdaic mdr:administeredItemContextTerminologicalEntry ?vdte.
+	?vdte mdr:containingTerminologicalEntryLanguage ?vdls.
+	?vdls mdr:containingNameEntry ?vddesignation.
+	?vddesignation mdr:name ?vdName.
+	
+	?vd mdr:valueDomainAdministrationRecord ?vdar .
+	?vdar mdr:administeredItemIdentifier ?vdaii.
+	?vdaii mdr:dataIdentifier ?vdId.
+	?vdaii mdr:version ?vdVersion.
+		 
+	?vd mdr:valueDomainDatatype ?vdd.
+	?vdd mdr:datatypeName ?vddName.
+	
+	OPTIONAL { 	
+		?vd mdr:valueDomainUnitOfMeasure ?vdunit.
+		?vdunit mdr:unitOfMeasureName ?vdUnitName.
+	}
+	
+	?vd mdr:representingConceptualDomainRepresentation ?conceptualDomain.
+	OPTIONAL {
+		?conceptualDomain rdfs:subClassOf mdr:EnumeratedConceptualDomain.
+		?conceptualDomain mdr:having ?cdaic.
+		?cdaic mdr:administeredItemContextTerminologicalEntry ?cdte.
+		?cdte mdr:containingTerminologicalEntryLanguage ?cdls.
+		?cdls mdr:containingNameEntry ?cddesignation.
+		?cddesignation mdr:name ?valueSetName.	
+	
+		?conceptualDomain mdr:conceptualDomainAdministrationRecord ?cdar .
+		?cdar mdr:administeredItemIdentifier ?cdaii.
+		?cdaii mdr:version ?valueSetVersion.
+		?cdaii mdr:dataIdentifier ?valueSetId.
+	}
+	?dec mdr:dataElementConceptObjectClass ?oc.
+	?oc mdr:having ?ocaic.
+	?ocaic mdr:administeredItemContextTerminologicalEntry ?octe.
+	?octe mdr:containingTerminologicalEntryLanguage ?ocls.
+	?ocls mdr:containingNameEntry ?ocdesignation.
+	?ocdesignation mdr:name ?ocName.
+	 
+	?dec mdr:dataElementConceptProperty ?property.
+	?property mdr:having ?propertyaic.
+	?propertyaic mdr:administeredItemContextTerminologicalEntry ?propertyte.
+	?propertyte mdr:containingTerminologicalEntryLanguage ?propertyls.
+	?propertyls mdr:containingNameEntry ?propertydesignation.
+	?propertydesignation mdr:name ?propertyName.
+
+	OPTIONAL { 	
+				?de mdr:classifiedBy ?mappingSpecification.
+				?mappingSpecification mdr:containedIn ?contentModel.
+
+				?contentModel mdr:having ?cmaic.
+				?cmaic mdr:administeredItemContextTerminologicalEntry ?cmte.
+				?cmte mdr:containingTerminologicalEntryLanguage ?cmls. 	
+				?cmls mdr:containingDefinitionEntry ?cmdefinitionItem.
+				?cmdefinitionItem mdr:definitionText "ExtractionSpecification"^^xsd:string .
+
+				?contentModel mdr:classificationSchemeTypeName ?contentModelName.
+				?contentModel mdr:classificationSchemeAdministrationRecord ?csar.
+				?csar mdr:administeredItemIdentifier ?csaii.
+				?csaii mdr:dataIdentifier ?contentModelId.
+				
+				?mappingSpecification mdr:classificationSchemeItemTypeName ?type.
+				?mappingSpecification mdr:classificationSchemeItemValue ?mappingScript.
+			}
+
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 	
+	IHE Data Element Exchange Profile (DEX) WSDL definition. 
+-->
+<wsdl:definitions xmlns="urn:ihe:qrph:dex:2013" xmlns:dex="urn:ihe:qrph:dex:2013" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://www.w3.org/2005/08/addressing" targetNamespace="urn:ihe:qrph:dex:2013">
+	<wsdl:types>
+		<xsd:schema targetNamespace="urn:ihe:qrph:dex:2013">
+			<xsd:include schemaLocation="DEX.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="RetrieveMetadataRequestMessage">
+		<wsdl:part name="body" element="dex:RetrieveMetadataRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveMetadataResponseMessage">
+		<wsdl:part name="body" element="dex:RetrieveMetadataResponse"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveDataElementListRequestMessage">
+		<wsdl:part name="body" element="dex:RetrieveDataElementListRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveDataElementListResponseMessage">
+		<wsdl:part name="body" element="dex:RetrieveDataElementListResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="DataElementExchangePortType">
+		<wsdl:operation name="RetrieveMetadata">
+			<wsdl:input message="dex:RetrieveMetadataRequestMessage"/>
+			<wsdl:output message="dex:RetrieveMetadataResponseMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveDataElementList">
+			<wsdl:input message="dex:RetrieveDataElementListRequestMessage"/>
+			<wsdl:output message="dex:RetrieveDataElementListResponseMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="DataElementExchangeBinding" type="dex:DataElementExchangePortType">
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="RetrieveMetadata">
+			<soap12:operation soapAction="urn:ihe:qrph:dex:2013:RetrieveMetadata"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveDataElementList">
+			<soap12:operation soapAction="urn:ihe:qrph:dex:2013:RetrieveDataElementList"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="DataElementExchangeService">
+		<wsdl:documentation>SOAP Web Service for IHE Data Element Exchange Profile</wsdl:documentation>
+		<wsdl:port name="DataElementExchangePort" binding="dex:DataElementExchangeBinding">
+			<soap12:address location=""/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

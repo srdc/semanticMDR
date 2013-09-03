@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	IHE Data Element Exchange Profile (DEX) XML Schema 
+	for use in WSDL definitions. 
+-->
+<xsd:schema xmlns="urn:ihe:qrph:dex:2013" xmlns:dex="urn:ihe:qrph:dex:2013" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://www.w3.org/2005/08/addressing" targetNamespace="urn:ihe:qrph:dex:2013" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="RetrieveMetadataRequest" type="dex:RetrieveMetadataRequestType"/>
+	<xsd:element name="RetrieveMetadataResponse" type="dex:RetrieveMetadataResponseType"/>
+	<xsd:element name="RetrieveDataElementListRequest" type="dex:RetrieveDataElementListRequestType"/>
+	<xsd:element name="RetrieveDataElementListResponse" type="dex:RetrieveDataElementListResponseType"/>
+	<xsd:complexType name="RetrieveMetadataRequestType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string"/>
+			<xsd:element name="registrationAuthority" type="xsd:string"/>
+			<xsd:element name="version" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RetrieveMetadataResponseType">
+		<xsd:sequence>
+			<xsd:element name="DataElement" type="dex:DataElementType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RetrieveDataElementListRequestType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="registrationAuthorityContains" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="version" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="displayNameContains" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="definitionContains" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contextualDomainContains" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="creationDateBefore" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="creationDateAfter" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="effectiveDateBefore" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="effectiveDateAfter" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="expirationDateBefore" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="expirationDateAfter" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="revisionDateBefore" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="revisionDateAfter" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="objectClassContains" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="propertyContains" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dataTypeContains" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="valueSetID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RetrieveDataElementListResponseType">
+		<xsd:sequence>
+			<xsd:element name="DataElementSummary" type="dex:DataElementSummaryType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DataElementType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string"/>
+			<xsd:element name="registrationAuthority" type="xsd:string"/>
+			<xsd:element name="version" type="xsd:string"/>
+			<xsd:element name="displayName" type="xsd:string"/>
+			<xsd:element name="definition" type="xsd:string"/>
+			<xsd:element name="contextualDomain" type="xsd:string"/>
+			<xsd:element name="creationDate" type="xsd:date"/>
+			<xsd:element name="effectiveDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="expirationDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="revisionDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="revisionNote" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="objectClass" type="xsd:string"/>
+			<xsd:element name="property" type="xsd:string"/>
+			<xsd:element name="valueDomain" type="dex:ValueDomainType"/>
+			<xsd:element name="mappingSpecification" type="dex:MappingSpecificationType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ValueDomainType">
+		<xsd:sequence>
+			<xsd:element name="dataType" type="xsd:string"/>
+			<xsd:element name="unitOfMeasure" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="valueSet" type="dex:ValueSetType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ValueSetType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string"/>
+			<xsd:element name="version" type="xsd:string"/>
+			<xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MappingSpecificationType">
+		<xsd:sequence>
+			<xsd:element name="contentModel" type="dex:ContentModelType"/>
+			<xsd:element name="type" type="xsd:string"/>
+			<xsd:element name="mappingScript" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContentModelType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string"/>
+			<xsd:element name="name" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DataElementSummaryType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string"/>
+			<xsd:element name="registrationAuthority" type="xsd:string"/>
+			<xsd:element name="version" type="xsd:string"/>
+			<xsd:element name="displayName" type="xsd:string"/>
+			<xsd:element name="definition" type="xsd:string"/>
+			<xsd:element name="contextualDomain" type="xsd:string"/>
+			<xsd:element name="creationDate" type="xsd:date"/>
+			<xsd:element name="effectiveDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="expirationDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="revisionDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="revisionNote" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="objectClass" type="xsd:string"/>
+			<xsd:element name="property" type="xsd:string"/>
+			<xsd:element name="valueDomain" type="dex:ValueDomainType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

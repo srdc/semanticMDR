@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>security-privacy.authentication</artifactId>
+    <packaging>jar</packaging>
+    <name>User Authentication Module</name>
+	
+	<parent>
+        <groupId>eu.salusproject</groupId>
+        <artifactId>salus.parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../../parent</relativePath>
+    </parent>
+	
+    <dependencies>
+        
+        <dependency>
+        	<groupId>eu.salusproject</groupId>
+        	<artifactId>salus.configuration</artifactId>
+        </dependency>
+
+		<!-- H2 Database -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+    
+	    <!-- APACHE COMMONS DEPENDENCY FOR UTILITIES -->
+	    <dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.8</version>
+		</dependency>
+		
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+
+        <!-- SLF4J + log4j Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

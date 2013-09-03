@@ -1,0 +1,46 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX schema: <http://schema.org/>
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+PREFIX dcterms:<http://purl.org/dc/terms/>
+PREFIX dc:<http://purl.org/dc/elements/1.1/>
+PREFIX mdr:<http://www.salusproject.eu/iso11179-3/mdr#>
+PREFIX dex:<urn:ihe:qrph:dex:2013#>
+
+CONSTRUCT {
+	?co a mdr:Context.
+	?co a skos:ConceptScheme.
+	?co a dex:Context.
+	
+	?co skos:prefLabel ?displayName.
+	
+	?co skos:definition ?definition.
+	
+	?co schema:description ?description.
+	?co dc:description ?description.
+	
+	?co dc:identifier ?uuid.
+	?co dcterms:identifier ?uuid.
+}
+WHERE {
+	?co rdfs:subClassOf mdr:Context.
+	?co mdr:contextDescription ?description.
+	?co mdr:contextDescriptionLanguageIdentifier mdr:MDRLanguageIdentification. # The default context does not have a language identifier
+
+	?co mdr:having ?aic.
+	?aic mdr:administeredItemContextContext mdr:MDRContext.
+	?aic mdr:administeredItemContextTerminologicalEntry ?te.
+	?te mdr:containingTerminologicalEntryLanguage ?ls.
+	?ls mdr:containingDefinitionEntry ?def.
+	?def mdr:definitionText ?definition.
+	
+	?ls mdr:containingNameEntry ?des.
+	?des mdr:name ?displayName.
+
+	?co mdr:contextAdministrationRecord ?car.
+	?car mdr:administeredItemIdentifier ?aii.
+	?aii mdr:dataIdentifier ?uuid.
+}

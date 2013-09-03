@@ -1,0 +1,46 @@
+<div style="width: 900px; margin: -250px 0 0 -450px;" id="modalWindow" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="dataElementConceptModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+			×
+		</button>
+		<h3 id="modalTitleH3">Data Element ISO 11179 Serialization</h3>
+	</div>
+	<div class="modal-body">
+		<p id="requiredParameters">
+			<form>
+				<textarea class="input-block-level" rows="15" placeholder="Serialization" id="serialization"></textarea>
+			</form>
+		</p>
+	</div>
+	<div class="modal-footer">
+		<div class="pull-left">
+			<div class="input-prepend">
+				<span class="add-on">Result Format: </span>
+				<select id="type">
+					<option>RDF/XML</option>
+					<option>RDF/XML-ABBREV</option>
+					<option>N-TRIPLE</option>
+					<option>TURTLE</option>
+					<option>N3</option>
+					<option>XML</option>
+				</select>
+				
+				<button class='btn' id="apply" style="margin-left: 5px;">
+					ISO 11179
+					<i class="icon-repeat"></i>
+				</button>
+				<button class='btn' id="applyDEX">
+					IHE DEX
+					<i class="icon-repeat"></i>
+				</button>  
+			</div>
+		</div>
+
+		<button class="btn" data-dismiss="modal" aria-hidden="true">
+			Close
+		</button>
+		<button id="selectAll" class="btn btn-primary">
+			Select All
+		</button>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+<div>
+	<div class="modal-body">
+		<p id="requiredParameters">
+			<input type='text' class="input-block-level" placeholder="Name" required='required' id="name" value="<%= name %>">
+		</p>
+
+		<a class="btn btn-small btn-block" data-toggle="collapse" data-target="#optionalParameters" id="collapseOptional">
+			<i class="icon-plus"></i> Show All Parameters
+		</a>
+		
+		<br />
+
+		<div id="optionalParameters" class="collapse out">
+			
+			<textarea class="input-block-level resize-v" placeholder="Administrative Note" id="definition" disabled><%= definition %></textarea>
+			<select class="input-block-level" placeholder="Name" id="registrationStatus" disabled>
+				<option>Registration Status</option>
+				<option>ALL</option>
+				<option>Application</option>
+				<option>Candidate</option>
+				<option>Proposed</option>
+				<option>Qualified</option>
+				<option>Standard</option>
+				<option>StandardizedElsewhere</option>
+				<option>Superceded</option>
+				<option>Suspended</option>
+			</select>
+
+			<select class="input-block-level" placeholder="Name" id="administrativeStatus" disabled>
+				<option>Administrative Status</option>
+				<option>ALL</option>
+				<option>Application</option>
+				<option>Candidate</option>
+				<option>Proposed</option>
+				<option>Qualified</option>
+				<option>Standard</option>
+				<option>StandardizedElsewhere</option>
+				<option>Superceded</option>
+				<option>Suspended</option>
+			</select>
+			
+			<textarea class="input-block-level resize-v" placeholder="Administrative Note" id="administrativeNote" disabled><%= administrativeNote %></textarea>
+			
+ 			<textarea class="input-block-level resize-v" placeholder="Explanatory Comment" id="explanatoryComment" disabled><%= explanatoryComment %></textarea>
+
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button id="cancelPropertyModal" class="btn">
+			Cancel
+		</button>
+		<button id="sendPropertyForm" class="btn btn-primary">
+			Add
+		</button>
+	</div>
+</div>

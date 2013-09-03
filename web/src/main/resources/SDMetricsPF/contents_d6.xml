@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sdmetricsprojectfilesets>
+    <projectfilesetlist>
+        <projectfileset>
+            <autoselect>false</autoselect>
+            <exportername>Embarcadero's Describe</exportername>
+            <exporterversion>6.0</exporterversion>
+            <metamodel>metamodel_describe6.xml</metamodel>
+            <metrics>metrics_describe6.xml</metrics>
+            <name>Embarcardero Describe 6</name>
+            <readonly>false</readonly>
+            <xmitransformation>xmiTrans_describe6.xml</xmitransformation>
+            <xmiversion>2.0</xmiversion>
+        </projectfileset>
+    </projectfilesetlist>
+</sdmetricsprojectfilesets>
