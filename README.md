@@ -43,17 +43,6 @@ Default installation comes with a default test user.
 	Username:demo
 	Password:demo
 
-When you login the semanticMDR, no data will be available in the system. A number
-of content model importers are available for importing data elements of some 
-well-known content models automatically. The "Import" menu can be used for this
-operation. 
-
-	Import->ALL
-
-imports all data elements from the available content models.
-This can take several minutes based on your system performance. This operation also
-imports the mappings between the data elements of different content models.
-
 ## Demo
 ===========
 
