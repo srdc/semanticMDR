@@ -43,7 +43,7 @@ Default installation comes with a default test user.
 	Username:demo
 	Password:demo
 
- ## Shut down
+## Shut down
 ===========
 
  Open source implementation should be shut down by hitting "CTRL+C" key on the running command
