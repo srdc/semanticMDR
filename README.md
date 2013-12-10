@@ -43,6 +43,13 @@ Default installation comes with a default test user.
 	Username:demo
 	Password:demo
 
+ ## Shut down
+===========
+
+ Open source implementation should be shut down by hitting "CTRL+C" key on the running command
+ prompt for the jetty server. Otherwise (if the associated JVM shuts down instantly), TDB store 
+ of the Semantic MDR may expose some problems on the next run.
+	
 ## Demo
 ===========
 
@@ -64,3 +71,5 @@ Default installation comes with a default test user.
  - Select a data element by dragging onto form field
  - submit a valid CDA document by click on "upload patient summary" 
  - click on "Populate"
+
+ 
