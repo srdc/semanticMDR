@@ -6,9 +6,8 @@ import javax.servlet.ServletContextListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import eu.salusproject.configuration.SALUSConfiguration;
 import eu.salusproject.securityprivacy.authentication.db.Database;
-
+import tr.com.srdc.mdr.configuration.SemanticMDRConfiguration;
 import tr.com.srdc.mdr.core.impl.Repository;
 import tr.com.srdc.mdr.core.impl.RepositoryManager;
 import tr.com.srdc.mdr.core.model.MDRException;
@@ -19,10 +18,14 @@ public class MDRServletContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		String configFilePath = sce.getServletContext()
-				.getInitParameter(SALUSConfiguration.CONTEXT_ATTRIBUTE_SALUS_CONFIG);
-		SALUSConfiguration.init(configFilePath);
-		
+		String dbDirectoryPath = sce.getServletContext().getInitParameter(
+				"database.dir");
+		if (dbDirectoryPath != null && !dbDirectoryPath.isEmpty()) {
+			SemanticMDRConfiguration.init(dbDirectoryPath);
+		} else {
+			SemanticMDRConfiguration.init(sce.getServletContext().getRealPath(
+					"/"));
+		}
 		Database.getInstance();
 		Repository repository = RepositoryManager.getInstance().getRepository();
 		try {
