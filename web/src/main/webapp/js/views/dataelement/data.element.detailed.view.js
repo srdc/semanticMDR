@@ -143,7 +143,7 @@ define(['jquery', 'backbone', 'marionette', 'bootstrap', 'bootbox', 'js/models/d
 		onRender : function() {
 			this.ui.conceptualDomainName.html(this.conceptualDomainModel.get('name'));
 
-			this.ui.objectClassName.html('<a href="/#oc/' + this.objectClassModel.get('id') + '/dec?offset=0">' + this.objectClassModel.get('name') + '</>');
+			this.ui.objectClassName.html('<a href="/semanticmdr/#oc/' + this.objectClassModel.get('id') + '/dec?offset=0">' + this.objectClassModel.get('name') + '</>');
 			this.ui.objectClassDefinition.html(this.objectClassModel.get('definition'));
 			if ( typeof this.parentConcept != 'undefined') {
 				this.ui.parentConceptName.html(this.parentConcept.get('name'));
@@ -167,7 +167,7 @@ define(['jquery', 'backbone', 'marionette', 'bootstrap', 'bootbox', 'js/models/d
 				// like in omop person location, person and location are object classes
 				// person location data elements has value domain, this value domain's datatype points to
 				// location object Class, we will make this navigatable in ui
-				this.ui.valueDomainName.html('<a href="/#oc/' + this.valueDomainModel.get('dataType').schemeReference + '/dec?offset=0">' + this.valueDomainModel.get('name') + '</>');
+				this.ui.valueDomainName.html('<a href="/semanticmdr/#oc/' + this.valueDomainModel.get('dataType').schemeReference + '/dec?offset=0">' + this.valueDomainModel.get('name') + '</>');
 			}
 
 			this.ui.valueDomainDefinition.html(this.valueDomainModel.get('definition'));
@@ -201,7 +201,7 @@ define(['jquery', 'backbone', 'marionette', 'bootstrap', 'bootbox', 'js/models/d
 					var matchType = mappings[i].matchType;
 					var termName = mappings[i].termName;
 					var termUUID = mappings[i].termUUID;
-					this.ui.mappings.append('<tr>' + '<td>Mapping<br/>(' + termSystem + ')</td><td>' + matchType + ':<br/><a class="btn btn-link" href="/#de/' + termUUID + '">' + termName + '</a></td></tr>');
+					this.ui.mappings.append('<tr>' + '<td>Mapping<br/>(' + termSystem + ')</td><td>' + matchType + ':<br/><a class="btn btn-link" href="/semanticmdr/#de/' + termUUID + '">' + termName + '</a></td></tr>');
 				}
 			} else {
 				this.ui.viewMappings.find('thead').replaceWith('<div class="alert alert-error">No Mapping Added Yet</div>');
