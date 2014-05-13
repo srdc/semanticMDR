@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <groupId>eu.salusproject</groupId>
-  <artifactId>security-privacy.authentication</artifactId>
+  <groupId>tr.com.srdc.semantic-mdr</groupId>
+  <artifactId>semantic-mdr.configuration</artifactId>
   <versioning>
     <release>1.0.0</release>
     <versions>
       <version>1.0.0</version>
     </versions>
-    <lastUpdated>20140509145450</lastUpdated>
+    <lastUpdated>20140509142516</lastUpdated>
   </versioning>
 </metadata>

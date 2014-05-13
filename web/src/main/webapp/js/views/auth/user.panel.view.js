@@ -15,7 +15,7 @@ define(['jquery', 'backbone', 'marionette', 'text!templates/auth/user.panel.html
 				type : 'DELETE',
 				url : URL + 'auth'
 			});
-			$.cookie('SID', null);
+			$.removeCookie('SID');
 			this.options.app.vent.trigger('auth:logout');
 		}
 	});
