@@ -63,6 +63,10 @@
 			<artifactId>cxf-rt-core</artifactId>
 		</dependency>
 		<dependency>
+            		<groupId>tr.com.srdc.semantic-mdr</groupId>
+            		<artifactId>semantic-mdr.core</artifactId>
+        	</dependency>
+		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
 		</dependency>
