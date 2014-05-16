@@ -7,7 +7,7 @@
 	<name>User Authentication Module</name>
 
 	<groupId>eu.salusproject</groupId>
-	<version>1.0.1</version>
+	<version>1.0.0-os</version>
 
 	<dependencies>
 
@@ -51,7 +51,7 @@
 		</dependency>
 	</dependencies>
 
-<repositories>
+	<repositories>
 		<repository>
 			<id>in-project-triplestore</id>
 			<name>In Project Repo for TripleStore</name>
