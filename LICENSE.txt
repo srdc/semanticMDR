@@ -1,3 +1,10 @@
+NOTICE:
+
+Different module can expose different licenses. Unless a module includes
+a LICENSE.txt file, following license (GNU GPLv3) applies.
+
+**********************************************************************                    
+                    
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
