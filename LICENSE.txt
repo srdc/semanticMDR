@@ -1,6 +1,6 @@
 NOTICE:
 
-Different module can expose different licenses. Unless a module includes
+Different modules can expose different licenses. Unless a module includes
 a LICENSE.txt file, following license (GNU GPLv3) applies.
 
 **********************************************************************                    
