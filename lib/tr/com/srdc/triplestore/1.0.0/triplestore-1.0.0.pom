@@ -1,59 +1,60 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
 	<groupId>tr.com.srdc</groupId>
-	<artifactId>triplestore</artifactId>
-	<packaging>jar</packaging>
-
+    <artifactId>triplestore</artifactId>
 	<version>1.0.0</version>
-
-	<name>Triple Store access through Apache Jena interface</name>
+    <packaging>jar</packaging>
+	
+    <name>Triple Store access through Apache Jena interface</name>
 	<description>Provides uniform access methods to the underlying triple store implementations. Currently Jena TDB and Vidtuoso are supported.</description>
+	
+    <dependencies>
 
-	<dependencies>
-		<dependency>
+<dependency>
 			<groupId>tr.com.srdc.semantic-mdr</groupId>
 			<artifactId>semantic-mdr.configuration</artifactId>
 			<version>1.0.0</version>
 		</dependency>
 
 		<!-- Jena TDB Dependency -->
-		<dependency>
-			<groupId>org.apache.jena</groupId>
-			<artifactId>jena-core</artifactId>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-core</artifactId>
 			<version>2.10.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.jena</groupId>
-			<artifactId>jena-tdb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-tdb</artifactId>
 			<version>0.10.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.jena</groupId>
-			<artifactId>jena-larq</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-larq</artifactId>
 			<version>1.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<!-- Virtuoso Dependencies -->
-		<dependency>
-			<groupId>tr.com.srdc</groupId>
-			<artifactId>virt-jena</artifactId>
+        </dependency>
+		
+        <!-- Virtuoso Dependencies -->
+        <dependency>
+            <groupId>tr.com.srdc</groupId>
+            <artifactId>virt-jena</artifactId>
 			<version>2.6.2-srdc</version>
-		</dependency>
-		<dependency>
-			<groupId>virtuoso</groupId>
-			<artifactId>virtjdbc4</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>virtuoso</groupId>
+            <artifactId>virtjdbc4</artifactId>
 			<version>4.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
+        </dependency>
+			
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
 			<version>2.4</version>
-		</dependency>
+        </dependency>
 
-	</dependencies>
-
+    </dependencies>
+	
 	<repositories>
 		<repository>
 			<id>in-project-triplestore</id>
@@ -61,5 +62,22 @@
 			<url>file://${project.basedir}/lib</url>
 		</repository>
 	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-source-plugin</artifactId>
+			  <executions>
+				<execution>
+				  <id>attach-sources</id>
+				  <goals>
+					<goal>jar</goal>
+				  </goals>
+				</execution>
+			  </executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

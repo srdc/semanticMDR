@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Jun 09 09:52:47 EEST 2014
+virt-jena-2.6.2-srdc.jar>=
+virt-jena-2.6.2-srdc-sources.jar>=
+virt-jena-2.6.2-srdc.pom>=

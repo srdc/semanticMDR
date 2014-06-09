@@ -1,4 +1,5 @@
 #NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
-#Fri May 09 17:26:02 EEST 2014
+#Mon Jun 09 09:46:59 EEST 2014
 triplestore-1.0.0.pom>=
+triplestore-1.0.0-sources.jar>=
 triplestore-1.0.0.jar>=

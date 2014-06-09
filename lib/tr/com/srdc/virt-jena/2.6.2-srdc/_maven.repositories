@@ -1,4 +1,4 @@
 #NOTE: This is an internal implementation file, its format can be changed without prior notice.
-#Thu May 09 08:51:30 VET 2013
-virt-jena-2.6.2-srdc.jar>=
-virt-jena-2.6.2-srdc.pom>=
+#Mon Jun 09 09:20:24 EEST 2014
+virt-jena-2.6.2-srdc.pom>in-project-triplestore=
+virt-jena-2.6.2-srdc.jar>in-project-triplestore=

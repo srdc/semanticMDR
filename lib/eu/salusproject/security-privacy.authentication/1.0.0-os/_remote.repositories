@@ -1,4 +1,5 @@
 #NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
-#Fri May 16 11:44:36 EEST 2014
-security-privacy.authentication-1.0.0-os.pom>in-project-triplestore=
-security-privacy.authentication-1.0.0-os.jar>in-project-triplestore=
+#Mon Jun 09 09:47:55 EEST 2014
+security-privacy.authentication-1.0.0-os.pom>=
+security-privacy.authentication-1.0.0-os-sources.jar>=
+security-privacy.authentication-1.0.0-os.jar>=
